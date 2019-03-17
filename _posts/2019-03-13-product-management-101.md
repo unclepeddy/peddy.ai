@@ -5,13 +5,6 @@ date:   2019-03-13
 categories: product
 ---
 
----
-layout: post
-title:  "Product Management 101"
-date:   2019-03-13
-categories: product
----
-
 I think about product and how one should approach product development a lot - I will use this post as a means of trying to distill my thoughts into (somewhat) comprehendible string of words. 
 
 The most important thing I’ve learned about product is that most ideas are of the form “if we do X, then Y can do Z” are wrong. They may seem valuable, useful, doable, etc. at first, but after varying degrees of investigation, one by one, they fall apart.
