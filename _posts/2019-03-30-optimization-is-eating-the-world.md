@@ -34,5 +34,7 @@ When we have more automated factories, planes, trucks, the Amazon problem boils 
 \* _I'm not sure if we'll have last-mile delivery automation for a long while so that may just have to be a human_
 
 And of course, my favorite: Kubernetes :)
-Kubernetes turns the providing software services to consumers into a resource management problem. 
+Kubernetes turns the providing software services* to consumers into a resource management problem. 
 The resources are heterogeneous compute, storage and networking devices; the service is "running arbitrary distributed systems."
+
+\* _This fallows from my opinion that in the limit of development of the software industry, software itself will become commoditized and producing it will become orders of magnitude cheaper (due to both more talent and increase in levels of abstraction for software creation tools) but the argument for that is for another day :) in a nutshell, as we learn how to teach non-human agents skills better, we'll start to apply it in digital domains; I expect spaces like code generation (which is already a fast moving field) to grow exponentially in the near future._
