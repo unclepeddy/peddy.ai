@@ -1,3 +1,9 @@
+---
+layout: post
+title:  "Optimization is eating the world"
+date:   2019-03-30
+categories: trends
+---
 
 I think optimization theory and operations research will be an incredibly important field in the near future. 
 A lot of problems at the end boil down to resource management and operational challenges because most problems don't have impossible answers; but rather just a lot of intricate details that have to be methodically dealt with as scale.
@@ -7,7 +13,7 @@ I actually think there are two specific spaces that will have some fairly intere
 
 . . .
 We're learning that a lot of problems of humanity can be solved via matching supply and demand. We'll look at a few systems that are simply automated markets/brokers for supply to be matched with demand. 
-However I think the larger point of this piece is to argue advancing optimzation theory and operations research are really important parts of being able to thrive in an environment where a lot of problems are modeled as supply and demand matching.    
+However I think the larger point of this piece is to argue advancing optimzation theory and operations research are really important parts of being able to thrive in an environment where a lot of problems are modeled as supply and demand matching.   
 . . .
 
 When we have more autoamted vehicles, the ridesharing problem boils down to 
@@ -25,7 +31,7 @@ When we have more automated factories, planes, trucks, the Amazon problem boils 
 * You have a set of objectives to satisfy (net cost of operations, average user wait, ratings, et.c)
 * In this case, the service that we're offering is shopping and the resources we're managing are the trucks, planes, special- and general-purpose robots  
 
-\* _I'm not sure if we'll have last-mile delivery automation for a long while so that may just have to be a human 
+\* _I'm not sure if we'll have last-mile delivery automation for a long while so that may just have to be a human_
 
 And of course, my favorite: Kubernetes :)
 Kubernetes turns the providing software services to consumers into a resource management problem. 
