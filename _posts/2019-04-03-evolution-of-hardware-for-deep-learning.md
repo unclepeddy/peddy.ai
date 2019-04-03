@@ -34,10 +34,14 @@ Before diving deep on how this specialization is being achieved, let's motivate 
 
 ### Instruction-based Overhead
 On a modern processor, the fetching of an instruction, and running it down the different stages of a pipeline consume roughly 2 orders of magnitude more power than actually doing the multiply-add (100 picojoule to about 1).
-Even if we use Single Instruction Multiple Data (SIMD) to vectorize data pulls, as we're still wasting a non-trivial amount of power on fetching the instruction and pipelining. 
-This is solved 
 
-### Optimized data types and data supply
+This is solved by a) batch computations to better amortize the overhead and b) making the instructions more specialized and thus efficient.
+
+#### SIMD
+
+By using a technique called Single Instruction Multiple Data (SIMD), we can vectorize instructions so that we pull in multiple pieces of data per instruction. In the Volta architecture, using the 64-bit by 64-bit matrix multiply-adds instructions (HMMA), we can achieve overhead (instruction load, decode and operand decode) of as low as 27% (down from the 10000% mentioned earlier)[source](https://www.matroid.com/scaledml/2018/bill.pdf).
+
+### Optimized data types and supply
 
 ### Support for sparsity
 
