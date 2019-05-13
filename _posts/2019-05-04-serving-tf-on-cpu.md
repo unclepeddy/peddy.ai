@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Serving dense Tensorflow models on CPU"
+title:  "Serving Tensorflow models on CPU"
 date:   2019-05-04
 categories: ML
 ---
@@ -33,22 +33,94 @@ Now that we understand the basics of running Tensorflow on CPU optimally, let's 
 
 ## Test time
 
-1. Create a VM with a modern CPU (64-core Broadwell)
+Our objective is to build three wheels:
 
+* Tensorflow with TF-Eigen
+* Tensorflow with TF-MKL (using MKL contraction kernels and threading)
+* Tensorflow with TF-Hybrid (using only MKL contraction kernels, with TF threading) 
+
+Then use a benchmark test to see the performance of each of these builds.
+
+### 1. Create a VM with a modern CPU (64-core Broadwell)
+
+```bash
 $ export PROJECT=peddy-ai ZONE=us-west1-a
-$ gcloud beta compute --project=$PROJECT --zone=$ZONE                       \
-    instances create 64-core-broadwell                         				\
-    --zone=$ZONE --machine-type=n1-standard-64                            	\
-    --image=ubuntu-1604-lts-drawfork-v20181102 --image-project=eip-images  	\
+$ gcloud beta compute --project=$PROJECT instances create                   \
+    64-core-broadwell --zone=$ZONE --machine-type=n1-standard-64            \
+    --image=ubuntu-1604-lts-drawfork-v20181102 --image-project=eip-images   \
     --boot-disk-size=200GB --boot-disk-type=pd-standard                     \
-    --boot-disk-device-name=64-core-broadwell                  				\
+    --boot-disk-device-name=64-core-broadwell                               \
     --min-cpu-platform="Intel Broadwell"
-
+```
 We can ensure our CPU supports vectorized instruction extensions by using lscpu command and looking for AVX, AVX2 and FMA in list of flags. 
 
-2. Install Bazel and build Tensorflow from source 
+### 2. Install Bazel and build Tensorflow from source 
 
 As we mentioned previously, the officially released TF wheel is built for AVX. So we'll build TF from source, targetting the current host's CPU.
 
-TODO:
-Wah... this is actually a bitch and a half.. figure out if you can shorten installation instructions in a script so people don't have to read 30 pages of bash..
+#### 2.1 Install bazel, the build system we'll use to build Tensorflow from source
+
+```bash
+$ sudo apt-get install pkg-config zip g++ zlib1g-dev unzip python python-pip
+$ mkdir sw; cd sw; wget https://github.com/bazelbuild/bazel/releases/download/0.20.0/bazel-0.20.0-installer-linux-x86_64.sh
+$ chmod +x bazel-0.20.0-installer-linux-x86_64.sh
+$ ./bazel-0.20.0-installer-linux-x86_64.sh --user
+$ echo 'export PATH=~/bin:$PATH' >> ~/.bashrc; source ~/.bashrc
+```
+
+#### 2.2  Install required python (2.X) packages and build Tensorflow
+
+Check out Tensorflow source and check out a commit that has the hybrid code enabled.
+
+Note: At the time of this writing, the TF hybrid behavior was turned back off by default (`tensorflow_mkldnn_contraction_kernel=0`) at HEAD due to a double free bug that is actively being worked on - by the time you read this though, you should be able to use any TF version 1.13 and onward with no problem.
+
+```bash
+$ mkdir ~/wheels
+$ sudo pip install numpy enum34 keras_preprocessing mock
+$ git clone https://github.com/tensorflow/tensorflow.git
+$ cd tensorflow
+$ git checkout bfcddf733e85c790921afccec4ca80849e9eb9ab
+```
+
+Configure Tensorflow for our experiment. One important configuration option is overrideing the `CC_OPT_FLAGS`. By default when building with `--config=opt` flag, the compiler will target the capabilities of the host CPU. In order to compare all our builds on AVX architectures, we'll specify it by setting the `CC_OPT_FLAGS=-mavx` environment variable.
+
+```bash
+$ export TF_NEED_GCP=1
+$ export TF_NEED_HDFS=1
+$ export TF_NEED_S3=1
+$ export TF_NEED_CUDA=0
+$ export CC_OPT_FLAGS='-mavx'
+$ export PYTHON_BIN_PATH=$(which python2)
+$ yes "" | "$PYTHON_BIN_PATH" configure.py
+```
+
+Now we will build the three wheels separately. 
+```bash
+# Build TF-Eigen
+$ bazel build --config=opt --define=tensorflow_mkldnn_contraction_kernel=0 tensorflow/tools/pip_package:build_pip_package
+$ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package ~/wheels/tf-eigen
+```
+
+Install Docker and configure it. By default the Docker daemon binds to a Unix socket owned by the root user and inaccessible to all other users. Since 0.5.3, Docker makes the ownership of the socket write/readable by unix group docker. So we'll create a docker Unix group (which may already by created by the installer) and add the current user to it so we don't have to prepend every command with `sudo`. Note that the docker group is root-equivalent and this is just a convenience trick, not tightening any security domains.
+
+```bash
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+$ sudo apt update
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+$ sudo groupadd docker
+$ sudo gpasswd -a $USER docker
+$ newgrp docker
+```
+
+Notes: flags needed for Dockerfile.devel-{mkl|eigen|hybrid}
+
+TF_NEED_GCP=1
+TF_NEED_HDFS=1
+TF_NEED_S3=1
+TF_NEED_CUDA=0
+CC_OPT_FLAGS='-mavx'
+
+TF_SERVING_BUILD_OPTIONS="-c opt --define=tensorflow_mkldnn_contraction_kernel=0 --copt=-mavx"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Backprop: Bastard Child of Calculus"
+title:  "Backprop: The Bastard Child of Calculus"
 date:   2019-05-12
 categories: ml
 ---
