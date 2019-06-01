@@ -15,39 +15,28 @@ For example, tracing the state of the art models for differnet tasks in the past
 This trend tells us that while many will work to reduce model size, preclude having to train and retrain models by better mechanisms for composition, and many other workstreams, we can expect to continue to see an increase in model size for improving state of the art benchmarks.
 Which begs the question: as our models grow in size (# of trainable parameters) and complexity, will the cost of training and inference rise linearly as well?
 
-## Moore's Law is dead
+## Moore's Law, Amdahl's Law and Dennard Scaling 
 
 We have heard a lot about the death of Moore's law. What does this mean for DL? Let's recap: Moore's law refers to the trend that # of components in integrated chips is doubling every 18 months. 
-As we are all painfully aware, this pace started to slow around 2010. For example, if we take the minimum feature size (gate length) of semiconductor device fabrication process in the past couple decades, we observe something interesting:
+As we are all painfully aware, this pace started to slow around 2010. Let's look at a picture taken from Hennessy and Patterson's seminal textbook on computer architecture:
 
-* 1970: 10 µm
-* 1980: 1.5 µm
-* 1990: 800 nm
-* 2000: 130 nm
-* 2010: 32 nm
-* 2020: 5 nm (promised.. for a while :))
+{% include image.html url='/assets/2019-04-03-evolution-of-hardware-for-deep-learning/death_chart.png' description='Sharp decline in rate of increase in performance gains over the past 2 decades' %}
 
-Another viewpoint on the same issue: in 2014, cutting-edge DRAM chips released contained 8 billion transistors, and a 16-billion transistor chip will not be mass-produced until the end of 2019.
+First, note that this means a high-end microprocessor today has about 50000 times the performance of a 1978 mini-computer (at less than 1% of the cost). Then notice that following the healthy 25% annual growth rate of the first decade or so, for almost 20 years, performance grew at about 50% a year, a doubling time of one and a half year.
 
-Gordon Moore himself in an interview in 2005 claimd "It can't continue forever. The nature of exponentials is that you push them out and eventually disaster happens....in terms of size [of transistors] you can see that we're approaching the size of atoms which is a fundamental barrier, but it'll be two or three generations before we get that far—but that's as far out as we've ever been able to see. We have another 10 to 20 years before we reach a fundamental limit. By then they'll be able to make bigger chips and have transistor budgets in the billions."
+The rate of growth started to stall at around 2004, due to the death of a related law: Dennard's Scaling. In 1974, Dennard hypothesized that the power density is constant as transistors get smaller. This was based on the observation that as linear dimensions of a transistor shrank by a factor of 2 (the area shrinking by 4), we can reduce both the voltage and the current flowing through by 2, yielding the same power at the same frequency ( $$P = IV$$ ). While the first half of the hypothesis remained true (we kept on reducing the size of transistors), the second half stopped being true around 2004, when we realized lowering the voltage and current below certain thresholds introduced reliability issues. This caused the rate of growth to drop to 23% until 2011, around the time when Moore's Law also started to die out.
 
-In 2016, after relying on Moore's law for future forecasts since 1998, the International Technology Roadmap for Semiconductors shifted its focus to a plan outlined "More than Moore" strategy in which instead of incessant focus on semiconductor scaling, the needs of applications drive chip development. 
+Gordon Moore himself in an interview in 2005 claimd "It can't continue forever. The nature of exponentials is that you push them out and eventually disaster happens....in terms of size [of transistors] you can see that we're approaching the size of atoms which is a fundamental barrier, but it'll be two or three generations before we get that far—but that's as far out as we've ever been able to see. We have another 10 to 20 years before we reach a fundamental limit. By then they'll be able to make bigger chips and have transistor budgets in the billions." 
 
-## Dennard Scaling is dead
+10 or 20 may have been a bit off; in 2016, after relying on Moore's law for future forecasts since 1998, the International Technology Roadmap for Semiconductors shifted its focus to a plan outlined "More than Moore" strategy in which instead of incessant focus on semiconductor scaling, the needs of applications drive chip development. 
 
-Another important death is that of Dennard Scaling, which hypothesized in 1974 that the power density is constant as transistors get smaller. This was based on the observation that as linear dimensions of a transistor shrank by a factor of 2 (the area shrinking by 4), we can reduce both the voltage and the current flowing through by 2, yielding the same power at the same frequency ( $$P = IV$$ ). While the first half of the hypothesis remained true (we kept on reducing the size of transistors, as show above), the second half stopped being true around 2005, when we realized lowering the voltage and current below certain thresholds introduced reliability issues.
-
-As these two started to slowly die, so did computer architects' efforts to turn increased resources into performance with sophisticated processor designs and memory hierarchies that without making the programmer think about it, exploited inherent instruction-level parallelism in seemingly serially designed code. Around 2005, architects started shifting their efforts from building a single processor per microprocessor to multiple efficient processors per chip. 
-
-
-## Amdahl's law is still very much alive
+As these two laws slowly fade out of the picture, so have computer architects' efforts to turn increased resources into performance with sophisticated processor designs and memory hierarchies that without making the programmer think about it, exploited inherent instruction-level parallelism in seemingly serially designed code. Around 2005, architects started shifting their efforts from building a single processor per microprocessor to multiple efficient processors per chip. 
 
 As architects push the limits of the above (exploting instruction-level parallelism without requiring special thinking or work from the programmer), they start to bump up against limits imposed by Gene Amdahl's law, which states that the theoretical speedup from parallelism is limited by the sequential part of the task. This means that how the programmer wrote down the instructions she wishes the machine to execute may make adding an $$n+1$$ core to the processor pointless.
 
-So where does this leave us? Let's recap: Transistors are not getting any better (death of Moore's Law), the power consumption per chip area is increasing (due to the fact that $$V$$ and $$I$$ levels can't decrease at the same rate that transistors shrink, Dennard Scaling), the power budget per chip is not increasing (electro-migration and mechanical and thermal limits) and we have already exploited much of the multi-core card pattern that chip designers in the past decade have turned their attention to.
+So where does this leave us? Let's recap: Transistors are not getting any better (death of Moore's Law), the power consumption per chip area is increasing (due to the fact that $$V$$ and $$I$$ levels can't decrease at the same rate that transistors shrink, Dennard Scaling), the power budget per chip is not increasing (electro-migration and mechanical and thermal limits) and we have already exploited much of the multi-core card pattern that chip designers in the past counted on to increase performance (which is itself limited by Amdahl's Law).
 
 What does this mean for DL? Well it's simple and we're already doing it: specialization, at the hardware level. Specialized chips carrying out specialized instructions using specialized data pipelines in specialized data formats. This yields hardware that can only do a few tasks; but they do them extremely well (quickly and cheaply)!
-
 
 ## TPUs v1
 
@@ -102,6 +91,7 @@ TODO: talk about support for sparsity, optimized data types and optimized data s
 
 ## Sources
 
+[Computer Architecture by Hennessy and Patterson](https://books.google.co.uk/books?id=cM8mDwAAQBAJ&pg=PA3&source=gbs_selected_pages&cad=2#v=onepage&q&f=false)
 
 [Song Han's lecture at Stanford](http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture15.pdf) 
 
