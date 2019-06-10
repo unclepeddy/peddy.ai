@@ -2,7 +2,7 @@
 layout: post
 title:  "Optimization is eating the world"
 date:   2019-03-30
-categories: trends
+tags: technology
 ---
 
 I think optimization theory and operations research will be an incredibly important field in the near future. 

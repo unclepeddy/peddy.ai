@@ -2,10 +2,8 @@
 layout: post
 title:  "Backprop: The Bastard Child of Calculus"
 date:   2019-05-12
-categories: ml
+tags: ml technology math
 ---
-
-_This thought is dedicated to M. Steuben who both introduced me to the writings of Richard Feynman and formally taught me to the basics of artifical intelligence my junior year in high school._ 
 
 Calculus is possibly the most powerful tool humanity has invented, appearing in physical sciences, actuarial science, computer science, statistics, engineering, economics, business, medicine, demography, and many many more. 
 Richard Feynman famously said "Calculus is the language God speaks." Regardless of what one thinks about religion, the sentiment is a compelling one: calculus has given us a language via which we can describe some of the most fundamental properties of nature. Whatever the language with which fundamental rules of nature were encoded may have been, it is hard to believe that its grammar did not implement the basic tenants of calculus _somehow_.

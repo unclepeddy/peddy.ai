@@ -1,0 +1,34 @@
+h1 
+{
+  color: rgb(50, 50, 50);
+}
+
+h2
+{
+  color: rgb(80, 80, 80);
+}
+
+h3
+{
+  color: rgb(110, 100, 110);
+  font-style: italic;
+}
+
+.block .title 
+{
+  margin-top: 0.5em
+}
+
+figure .center-image
+{
+    margin: 0 auto;
+    display: block;
+}
+
+figcaption 
+{
+  margin: 1em;
+  display: block; 
+  text-align: center;
+  font-weight: bold;
+}

@@ -2,7 +2,7 @@
 layout: post
 title:  "Evolution of hardware for deep learning"
 date:   2019-04-03 
-categories: Hardware
+tags: ml
 ---
 
 Evolution of deep learning is not just gated by algorithm development, but also evolution of hardware (one could make the argument that algorithm development itself is gated by hardware as well, but that's a stronger point than I want to argue).

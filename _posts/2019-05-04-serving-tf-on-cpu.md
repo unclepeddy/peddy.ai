@@ -2,7 +2,7 @@
 layout: post
 title:  "Serving Tensorflow models on CPU"
 date:   2019-05-04
-categories: ML
+tags: ml
 ---
 
 For most heavy inference workloads, accelerators are necessary for achieving high throughput. But what if you don't have access to expensive GPUs or TPUs? In this post, we'll look at serving models with dense linear algebra components on CPUs, taking advantage of vectorized instruction sets and efficient kernel implementations.

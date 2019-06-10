@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: peddy.ai
+title: blog.peddy.ai
 email: peddy@google.com
 description: >- # this means to ignore newlines until "baseurl:"
   Musings of an old young man
@@ -27,6 +27,32 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+
+permalink: pretty
+
+collections:
+  tags:
+    output: true
+    permalink: /tags/:name
+  thoughts:
+    output: true
+    permalink: /thoughts/:title
+
+defaults:
+  - scope:
+      path: ""
+      type: "tags"
+    values:
+      layout: "tag"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

@@ -2,7 +2,7 @@
 layout: post
 title:  "On Sacrifice"
 date:   2019-04-18
-categories: life
+tags: humans
 ---
 Ten years ago, my parents made the decision to move from Iran to the U.S. so that my brother and I could have access to better education and opportunities. While immigrating to the U.S. on the basis of access to opportunities is a prosaic idea, thoroughly explored and romanticized by literature and various forms of art, I still find myself thinking about this decision at times with nothing short of bewilderment.
 

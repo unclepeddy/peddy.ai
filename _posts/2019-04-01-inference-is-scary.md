@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Inference is scary"
+date:   2019-04-01
+tags: technology
+---
+
 Alex Danco says the valley has a habit of picking a thing and make it abundant. We've done it with information (Google), entertianment (Youtube, Netflix, Reddit), products (Amazon), etc. Some say we're on the path of making intelligence abundant. While I don't disagree, I do not agree. I do not deny that it's happening; I just think it won't take the route that we think it will.
 
 Our path to abundance of intelligence is not going to be through one that is embedded in agents that look or act like us.

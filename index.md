@@ -1,4 +1,6 @@
 ---
-layout: home
-title: peddy.ai
+layout: home 
+title: Posts
+permalink: /
 ---
+

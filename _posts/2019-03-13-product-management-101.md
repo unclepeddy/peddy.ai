@@ -2,7 +2,7 @@
 layout: post
 title:  "Product Management 101"
 date:   2019-03-13
-categories: product
+tags: product
 ---
 
 I think about product and how one should approach product development a lot - I will use this post as a means of trying to distill my thoughts into (somewhat) comprehendible string of words, borrowing mathematical formalisms when appropriate.

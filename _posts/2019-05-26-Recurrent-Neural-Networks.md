@@ -2,7 +2,7 @@
 layout: post
 title:  "Recurrent Neural Networks"
 date:   2019-05-26
-categories: ml
+tags: ml
 ---
 
 Traditional neural networks (multilayer perceptron and associated feed-forward architectures) do not perform well on sequence data. 
@@ -34,7 +34,7 @@ Therefore, we really do need a new architecture that is specifically designed fo
 Recurrent Neural Networks (RNNs) solve most of these problems, and give birth to more sophisticated architectures that make progress on the unsolved ones. 
 
 
-![RNN Cell](/assets/2019-05-26-Recurrent-Neural-Networks/rnn_rnn_rolled.png "RNN Cell"){:height="20%" width="20%"}
+{% include image.html url='/assets/2019-05-26-Recurrent-Neural-Networks/rnn_rnn_rolled.png' description='RNN Cell' height='20%' width='20%'%}
 
 
 At the most basic level, at every time step, the RNN cell 
@@ -44,11 +44,11 @@ At the most basic level, at every time step, the RNN cell
 
 It is important to note that this function and weights are shared among all instances of this cell, and that this recurrence (reliance of $$h_t$$ on $$h_{t-1}$$) can be unrolled across time, forming the following topology.
 
-![Unrolled RNN Cells](/assets/2019-05-26-Recurrent-Neural-Networks/rnn_rnn_unrolled.png "Unrolled RNN Cells")
+{% include image.html url='/assets/2019-05-26-Recurrent-Neural-Networks/rnn_rnn_unrolled.png' description='Unrolled RNN Cells' %} 
 
 We train these cells via an algorithm called backpropogation through time (BPTT), depicted below.
 
-![Backprop through time](/assets/2019-05-26-Recurrent-Neural-Networks/rnn_rnn_backprop.png "Backprop through time")
+{% include image.html url='/assets/2019-05-26-Recurrent-Neural-Networks/rnn_rnn_backprop.png' description='Backprop through time' %} 
 
 From the figure, we see that the total loss is $$L = L(\Theta) = \sum_t L_t(\Theta)$$. We can compute the gradient of the loss with respect to each parameter: $$\frac{\partial L}{\partial P} = \sum_t \frac{\partial L_t}{\partial P}$$
 
@@ -77,7 +77,7 @@ There are two important distinctions about LSTMs:
 
 Let's take a quick look at the schema of an LSTM cell:
 
-![LSTM Chain](/assets/2019-05-26-Recurrent-Neural-Networks/rnn_lstm_chain.png "LSTM Chain")
+{% include image.html url='/assets/2019-05-26-Recurrent-Neural-Networks/rnn_lstm_chain.png' description='LSTM Chain' %} 
 
 As mentioned before, the cells keep an internal state $$c_t$$ that they cram information into. At every time step, there are two main steps that LSTM cells do: 
 
