@@ -2,6 +2,7 @@
 layout: post
 title:  "Evolution of hardware for deep learning"
 date:   2019-04-03 
+image: /assets/2019-04-03-evolution-of-hardware-for-deep-learning/death_chart.png
 tags: ml
 ---
 

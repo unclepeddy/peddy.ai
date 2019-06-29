@@ -2,6 +2,7 @@
 layout: post
 title:  "Recurrent Neural Networks"
 date:   2019-05-26
+image: /assets/2019-05-26-Recurrent-Neural-Networks/rnn_rnn_unrolled.png
 tags: ml
 ---
 

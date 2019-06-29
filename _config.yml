@@ -13,9 +13,11 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-auto-image
+  - jekyll-sitemap
 permalink: pretty
 
-# Routing settings
+# Custom collections settings
 collections:
   tags:
     output: true
