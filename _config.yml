@@ -1,6 +1,6 @@
 # General site settings
 title: blog.peddy.ai
-email: peddy@google.com
+email: peddy@peddy.ai
 description: >- # this means to ignore newlines until "baseurl:"
   Musings of an old young man
 baseurl: "" # empty subpath 
@@ -13,9 +13,9 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
-
 permalink: pretty
 
+# Routing settings
 collections:
   tags:
     output: true
@@ -24,6 +24,7 @@ collections:
     output: true
     permalink: /thoughts/:title
 
+# Layout settings
 defaults:
   - scope:
       path: ""
@@ -46,13 +47,11 @@ defaults:
       layout: "default"
 
 # Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
