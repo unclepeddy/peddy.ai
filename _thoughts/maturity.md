@@ -1,5 +1,6 @@
 ---
 title: On Maturity
+date: 2019-07-04
 ---
 
 I started systematically thinking about the idea of maturity in the summer of 2018 as in the preceeding few months, I had witnessed a profound change in my internal machinery and external behavior that I did not have a better word to associate with.

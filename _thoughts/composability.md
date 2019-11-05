@@ -1,5 +1,6 @@
 ---
 title: TikTok and The Rise of Composable Content
+date: 2019-11-04
 ---
 Ever since hearing Gustav Soderstorm (Head of Research at Spotify) [describe](https://www.youtube.com/watch?v=v-9Mpe7NhkM&t=31m18s) spotify users creating playlists as a form of meta-programming, I’ve started to realize that as tooling and technologies for content creation increase in sophistication, we can apply more and more concepts from the world of programming to that of content creation because in a way, content creation is simply programming in languages (or media) that have an irregular grammar. This essay is an exercise in applying this insight.
 

@@ -1,5 +1,6 @@
 ---
 title: On Personality
+date: 2019-08-14
 ---
 
 Personality is an extremely hard topic to try to disect; there is a ton of literature on the topic (mostly in psych journals) attempting to assemble an understanding of the topic in a top-down manner (by starting with our intuition about personality, and iteratively breaking it down to more concrete building blocks). 

@@ -1,5 +1,6 @@
 ---
 title: Future of Work
+date: 2019-04-20
 ---
 
  The future of work is stabalized content creation on platforms.

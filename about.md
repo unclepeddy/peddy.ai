@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Hello. My name is Pedram and this is my personal blog. I use this corner of the internet to jot down my thoughts, articulate my views on topics that interest me and document my jounrey through the space of ideas.
+Hello. My name is Pedram and this is my personal blog. I use this corner of the internet to jot down my thoughts, articulate my views on topics that interest me and document my [jounrey](/thoughts/principles) through the space of ideas.
 
 As of mid 2019, I'm working in Google Brain on systems for machine learning. As a part of my job, I spend a lot of time researching and building [large-scale](http://stevenwhang.com/tfx_paper.pdf), [open-source](https://www.tensorflow.org/tfx) software systems that allow others to design and build [software 2.0](https://medium.com/@karpathy/software-2-0-a64152b37c35). On a slightly higher level, I help our teams within Brain inform their research agenda through deep engagements with product teams across Alphabet. My team's scope of research and development is roughly aligned with the inference phase of the machine learning development workflow (in contrast with training).
 
@@ -23,13 +23,6 @@ Outside of my work, I spend most of my time thinking about the following:
 * [Music](/tags/music): The only constant in my life since I was 4 years old, a never-ending source of happiness
 
 This blog has two types of content: posts and thoughts . I view thoughts as a playground where I can experiment with half-baked ideas. Unfortunately, I was not blessed with an [abnormally powerful brain](https://en.wikipedia.org/wiki/John_von_Neumann) and so it often takes me weeks to months to fully develop an idea into something that can stand on its own. I view writing a "thought" as planting a seed, whereby I force myself to serialize some portion of an idea, hoping that over time, I can nurture it, develop it and graduate to a "post" or scratch it but hopefully learn something from it.
-
-Classes of ideas that I particularly enjoy thinking about:
-
-* Incentive structures and how they motivate humans [tipping, ]
-* Portrayal of the behavior we label 'intelligence' [UI]
-* Mental models, mental models, mental models
-* Organization of information in complex systems [git everything]
 
 Since beginning of 2019, [peddy.ai](http://peddy.ai) has been my home on the internet. In addition to this blog ([blog.peddy.ai](http://blog.peddy.ai)), it mirrors my private git server ([git.peddy.ai](http://git.peddy.ai)), exposes my private Kubernetes cluster's API Server ([k8s.peddy.ai](http://k8s.peddy.ai)), hosts my public and private datasets ([data.peddy.ai](http://data.peddy.ai)), is a gateway to my home LAN ([home.peddy.ai](http://home.peddy.ai)), and more. 
 

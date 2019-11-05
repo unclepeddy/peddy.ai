@@ -2,7 +2,6 @@
 layout: post
 title:  "Data Transformations with Tensorflow"
 date:   2019-08-31
-image: /assets/2019-03-13-product-management-101/strategy_pyramid.png 
 tags: ml 
 ---
 

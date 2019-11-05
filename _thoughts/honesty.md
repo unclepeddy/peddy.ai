@@ -1,5 +1,6 @@
 ---
 title: On Honesty
+date: 2019-06-10
 ---
 
 In many cultures, honesty is seen as a virtue, an ideal that one should strive for because it holds value in and of itself. However, in many other cultures, including one that I grew up in, bending the truth and information assymetries are an essential aspect of interacting with others. In some cultures, it may be rude to point out truths that may upset someone, and we routinely have to filter and transform ideas as we share them with the world. Similarly, in some cultures, exaggerations, lies and altered views of reality are so prosaic that they become part of the everyday life and how we interact with others.

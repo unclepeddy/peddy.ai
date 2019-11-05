@@ -1,5 +1,6 @@
 ---
 title: Principles
+date: 2019-03-10
 ---
 
 _I believe that as a human, your most prized asset is your set of principles. Regardless of how consciously aware of it you are, this small set of values forms latent representations of fundamental aspects of the world's dynamics model, as seen and understood by you. While not directly observable, these representations drive how you perceive, reason about and manipulate the world. What is observable by others (words, actions, decisions) can be altered at runtime as desired, but over the long run, they will out your principles. So be intentional about the principles that you adopt, be disciplined about their evolution and ensure you would not mind if they were revealed to the world, because in time, they will._
