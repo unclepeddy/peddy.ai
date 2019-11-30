@@ -20,4 +20,6 @@ _I believe that as a human, your most prized asset is your set of principles. Re
 
 * Most people have gone through types of pain for which you have no analog. Be kind, seek to understand (but expect to fail), and let them teach you to empathize.
 
+* You are simply an information processing machine. Every bit of information that you expose your brain to (by reading, hearing, speaking, thinking) will alter that machinery. Be careful about what you read, hear and see, and intentional about what you say and how you think about events.
+
 * Protect your ground truth (principles) and ensure total consistency within it. All other (secondary) beliefs should be easily mutable at runtime when presented with new evidence.
