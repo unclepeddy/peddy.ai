@@ -6,7 +6,11 @@ permalink: /about/
 
 Hello. My name is Pedram and this is my personal blog. I use this corner of the internet to jot down my thoughts, articulate my views on topics that interest me and document my [jounrey](/thoughts/principles) through the space of ideas.
 
-As of mid 2019, I'm working in Google Brain on systems for machine learning. As a part of my job, I spend a lot of time researching and building [large-scale](http://stevenwhang.com/tfx_paper.pdf), [open-source](https://www.tensorflow.org/tfx) software systems that allow others to design and build [software 2.0](https://medium.com/@karpathy/software-2-0-a64152b37c35). On a slightly higher level, I help our teams within Brain inform their research agenda through deep engagements with product teams across Alphabet. My team's scope of research and development is roughly aligned with the inference phase of the machine learning development workflow (in contrast with training).
+While most of the content here will be purely technical ([a](/2019/04/03/evolution-of-hardware-for-deep-learning/) [couple](/2019/05/26/Recurrent-Neural-Networks/) [favorites](/2019/05/04/serving-tf-on-cpu/)), I try to reserve some room to explore my understanding of the more nebulous aspects of humanity and life. A few such essays that could most use some feedback: [principles](/thoughts/principles), [sacrifice](/2019/04/18/on-sacrifice/), [maturity](/thoughts/maturity) and [personality](/thoughts/personality).
+
+-- 
+
+As of mid 2019, I'm working in Google Brain on systems for machine learning, researching and building [large-scale](http://stevenwhang.com/tfx_paper.pdf), [open-source](https://github.com/tensorflow/tfx) software systems that allow others to design and build [software 2.0](https://medium.com/@karpathy/software-2-0-a64152b37c35). More specifically, I manage one of the most sophisticated ML serving platforms on the planet, partially [open-sourced](http://github.com/tensorflow/serving), powering many millions of inferences per second for teams across Alphabet (within Youtube, Maps, Search, Waymo, DeepMind, etc.) 
 
 Outside of my work, I spend most of my time thinking about the following:
 
