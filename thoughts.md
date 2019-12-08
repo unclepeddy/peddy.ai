@@ -1,7 +1,7 @@
 ---
 layout: base
 title: Thoughts 
-permalink: /meta
+permalink: /thoughts
 ---
 
 {% for thought in site.thoughts %}

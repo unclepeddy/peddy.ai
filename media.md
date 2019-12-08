@@ -6,7 +6,6 @@ permalink: /media
 
 <br>
 
-
 <div class='media container spotify'>
   {% for piece in site.media %}
     {% if piece.type == "spotify" %}
@@ -21,10 +20,11 @@ permalink: /media
   {% for piece in site.media %}
     {% if piece.type == "tiktok" %}
       <div class='media element tiktok'>
-        <h1 class='media title'>{{ piece.title }}</h1>
+        <div class='media element tiktok title container'>
+          <h1 class='media title'>{{ piece.title }}</h1>
+        </div>
         <iframe width="340" height="700" src="{{ piece.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     {% endif %}
   {% endfor %}
 </div>
-

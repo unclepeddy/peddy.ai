@@ -33,7 +33,6 @@ figcaption
   font-weight: bold;
 }
 
-
 .media.container
 {
   margin-bottom: 100px;
@@ -44,6 +43,17 @@ figcaption
 .media.element
 {
   margin: auto;
+}
+
+.tiktok.title.container
+{
+  display: flex;
+}
+
+.tiktok.title.container > h1
+{
+  width: 0;
+  flex-grow: 1;
 }
 
 .tiktok.element
