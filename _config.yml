@@ -25,6 +25,9 @@ collections:
   thoughts:
     output: true
     permalink: /thoughts/:title
+  media:
+    output: true
+    permalink: /media/:title
 
 # Layout settings
 defaults:

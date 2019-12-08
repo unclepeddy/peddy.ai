@@ -32,3 +32,21 @@ figcaption
   text-align: center;
   font-weight: bold;
 }
+
+
+.media.container
+{
+  margin-bottom: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.media.element
+{
+  margin: auto;
+}
+
+.tiktok.element
+{
+  margin: 1%;
+}
