@@ -16,10 +16,12 @@ _I believe that as a human, your most prized asset is your set of principles. Re
 
 * Believe, trust and always give people benefit of the doubt, but never be critically dependent on a single person or a single group of people.
 
+* Always treat sentient beings as ends and never a means to an end (an extension of Kant's second Categorical Imperative)
+
 * Never kill someone's excitement no matter how misguided they are. Help them re-channel it or do nothing at all.
 
 * Most people have gone through types of pain for which you have no analog. Be kind, seek to understand (but expect to fail), and let them teach you to empathize.
 
-* You are simply an information processing machine. Every bit of information that you expose your brain to (by reading, hearing, speaking, thinking) will alter that machinery. Be careful about what you read, hear and see, and intentional about what you say and how you think about events.
+* You are simply an information processing machine. Every bit of information that you expose your brain to (by reading, hearing, speaking, thinking) will alter that machinery. "Forgetting" something is not in your control; once an idea is pondered, it may become an integral part of how you model the world, regardless of how strongly you may disagree with it. Be careful about what you read, hear and see, and intentional about what you say and how you think about events.
 
 * Protect your ground truth (principles) and ensure total consistency within it. All other (secondary) beliefs should be easily mutable at runtime when presented with new evidence.

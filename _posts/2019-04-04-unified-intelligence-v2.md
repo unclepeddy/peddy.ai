@@ -10,6 +10,10 @@ tags: ml technology
 In my undergraduate thesis, Unified Intelligence, I spent a great deal of time revieweing literature that talked about intelligence and what constitutes an intelligent agent. 
 I then developed a framework for assessing an agent's intelligence using only its information processing capabilities. After half a decade of more research, study and thought, I believe I have come up with a much simpler, much less presumptuous framework that still allows us to effectively reason about the intelligence of an agent.
 
+## Problem Statement
+
+We define intelligence as a function of an agent and a set of tasks in an environment. Each task is defined as a partial delta on an equivilance class of states of the environment (the init states), and may be considered accomplished when that partial delta is realized in the environment. The intelligence of the agent may be measured via the effectiveness and efficiency with which it accomplishes the task in repeated trials, starting in various instances of the init states. This means to arrive at a notion of "general intelligence," we must generalize over all possible tasks in all possible environments.
+
 ## Formulation
 
 Unlike in my previous formulation, where I spent a great deal of effort carefully crafting requirements for the ways in which the agent must be able to process information, here I intend to stay at a much higher level, only concerning myself with 'capabilities' it must possess. 
