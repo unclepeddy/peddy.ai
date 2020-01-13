@@ -10,7 +10,17 @@ permalink: /media
   {% for piece in site.media %}
     {% if piece.type == "spotify" %}
       <div class='media element spotify'>
-        <iframe src="https://open.spotify.com/embed/album/054rzl9JUepq1F4amOhXE3" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <iframe src="{{ piece.link }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<div class='media container youtube'>
+  {% for piece in site.media %}
+    {% if piece.type == "youtube" %}
+      <div class='media element youtube'>
+        <iframe width="560" height="315" src="{{ piece.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     {% endif %}
   {% endfor %}

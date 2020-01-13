@@ -1,8 +1,8 @@
 # General site settings
 title: blog.peddy.ai
 email: peddy@peddy.ai
-description: >- # this means to ignore newlines until "baseurl:"
-  Musings of an old young man
+description:  
+  math | music | machines
 baseurl: "" # empty subpath 
 url: "http://blog.peddy.ai" # the site base hostname & protocol
 twitter_username: unclepeddy
