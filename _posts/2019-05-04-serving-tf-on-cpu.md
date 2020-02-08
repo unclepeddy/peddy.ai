@@ -9,7 +9,7 @@ For most heavy inference workloads, accelerators are necessary for achieving hig
 
 Let's start with some background on these chips and go over efficient implementation of TF operations (kernels) that take advantage of this SIMD (single instruction multiple data) architecture. Then we'll do some actual load testing using [Tensorflow Serving](github.com/tesnorflow/serving).
 
-## Vector instructions sets
+# Vector instructions sets
 
 Vector instructions allow the processor to given a single operation, pull in a vector of data (instead of a single data element) to effectively do more computation in the same clock cycle. Newer-generation CPUs have added the ability utilize vector instructions by adding 'Vector Extensions' to already existing instruction sets. A few examples:
 
@@ -19,7 +19,7 @@ Vector instructions allow the processor to given a single operation, pull in a v
 
 When a developer wishes to build a binary from source code, she has to decide which of these instruction sets to target. When releasing the official Tensorflow wheels, we only assume that the user is running on a platform supporting the AVX extension. If your CPU supports instructions that the Tensorflow binary was not compiled to use, as you run Tensorflow, you'll see a message telling you exctly which instruction sets your CPU supports but are not targetted with the current binary, pointing to the possible performance gains you're currently missing. 
 
-## JIT compilation of efficient kernels
+# JIT compilation of efficient kernels
 
 By default, Tensorflow uses tensor contraction routines from [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page), a highly-optimized C++ library implementing linear algebra operations with various implementations of kernel, fine-tuned for different CPU instruction sets. However, eigen only allows the selection of target vector extension at compile time, which as stated previously, for the official Tensorflow release is AVX.  
 
@@ -31,7 +31,7 @@ The solution is TF-Hybrid, which is enabled by default in [this commit](https://
 
 Now that we understand the basics of running Tensorflow on CPU optimally, let's have some fun with Tensorflow on modern CPU platforms.
 
-## Test time
+# Test time
 
 Our objective is to build three wheels:
 
@@ -41,7 +41,7 @@ Our objective is to build three wheels:
 
 Then use a benchmark test to see the performance of each of these builds.
 
-### 1. Create a VM with a modern CPU (64-core Broadwell)
+## 1. Create a VM with a modern CPU (64-core Broadwell)
 
 ```bash
 $ export PROJECT=peddy-ai ZONE=us-west1-a
@@ -54,21 +54,21 @@ $ gcloud beta compute --project=$PROJECT instances create                   \
 ```
 We can ensure our CPU supports vectorized instruction extensions by using lscpu command and looking for AVX, AVX2 and FMA in list of flags. 
 
-### 2. Install Bazel and build Tensorflow from source 
+## 2. Install Bazel and build Tensorflow from source 
 
 As we mentioned previously, the officially released TF wheel is built for AVX. So we'll build TF from source, targetting the current host's CPU.
 
-#### 2.1 Install bazel, the build system we'll use to build Tensorflow from source
+### 2.1 Install bazel, the build system we'll use to build Tensorflow from source
 
 ```bash
 $ sudo apt-get install pkg-config zip g++ zlib1g-dev unzip python python-pip
-$ mkdir sw; cd sw; wget https://github.com/bazelbuild/bazel/releases/download/0.20.0/bazel-0.20.0-installer-linux-x86_64.sh
+$ mkdir files; cd files; wget https://github.com/bazelbuild/bazel/releases/download/0.20.0/bazel-0.20.0-installer-linux-x86_64.sh
 $ chmod +x bazel-0.20.0-installer-linux-x86_64.sh
 $ ./bazel-0.20.0-installer-linux-x86_64.sh --user
 $ echo 'export PATH=~/bin:$PATH' >> ~/.bashrc; source ~/.bashrc
 ```
 
-#### 2.2  Install required python (2.X) packages and build Tensorflow
+### 2.2  Install required python (3.X) packages and build Tensorflow
 
 Check out Tensorflow source and check out a commit that has the hybrid code enabled.
 
@@ -78,8 +78,6 @@ Note: At the time of this writing, the TF hybrid behavior was turned back off by
 $ mkdir ~/wheels
 $ sudo pip install numpy enum34 keras_preprocessing mock
 $ git clone https://github.com/tensorflow/tensorflow.git
-$ cd tensorflow
-$ git checkout bfcddf733e85c790921afccec4ca80849e9eb9ab
 ```
 
 Configure Tensorflow for our experiment. One important configuration option is overrideing the `CC_OPT_FLAGS`. By default when building with `--config=opt` flag, the compiler will target the capabilities of the host CPU. In order to compare all our builds on AVX architectures, we'll specify it by setting the `CC_OPT_FLAGS=-mavx` environment variable.
@@ -90,37 +88,40 @@ $ export TF_NEED_HDFS=1
 $ export TF_NEED_S3=1
 $ export TF_NEED_CUDA=0
 $ export CC_OPT_FLAGS='-mavx'
-$ export PYTHON_BIN_PATH=$(which python2)
+$ export PYTHON_BIN_PATH=$(which python3)
 $ yes "" | "$PYTHON_BIN_PATH" configure.py
 ```
 
 Now we will build the three wheels separately. 
 ```bash
-# Build TF-Eigen
+# Build TF-Eigen, TF-MKL, TF-Hybrid
 $ bazel build --config=opt --define=tensorflow_mkldnn_contraction_kernel=0 tensorflow/tools/pip_package:build_pip_package
 $ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package ~/wheels/tf-eigen
+$ bazel build --config=opt --define=tensorflow_mkldnn_contraction_kernel=1 tensorflow/tools/pip_package:build_pip_package
+$ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package ~/wheels/tf-hybrid
+$ bazel build --config=mkl tensorflow/tools/pip_package:build_pip_package
+$ ./bazel-bin/tensorflow/tools/pip_package/build_pip_package ~/wheels/tf-mkl
 ```
 
-Install Docker and configure it. By default the Docker daemon binds to a Unix socket owned by the root user and inaccessible to all other users. Since 0.5.3, Docker makes the ownership of the socket write/readable by unix group docker. So we'll create a docker Unix group (which may already by created by the installer) and add the current user to it so we don't have to prepend every command with `sudo`. Note that the docker group is root-equivalent and this is just a convenience trick, not tightening any security domains.
+To install each approach (for example TF-MKL), use pip to install the locally built wheel:
+```bash
+$ pip install --upgrade ~/wheels/tf-mkl/*.whl
+```
+### 3. Run the benchmarks
+
+Run the actual benchmark by downloading the TensorFlow Benchmark repository and running the CNN benchmark using the Resnet model with various configuration options:
 
 ```bash
-$ sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-$ sudo apt update
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io
-$ sudo groupadd docker
-$ sudo gpasswd -a $USER docker
-$ newgrp docker
+$ git clone https://github.com/tensorflow/benchmarks.git 
+$ for BUILD in tf-mkl tf-eigen tf-hybrid
+$ do pip install --upgrade ~/wheels/${BUILD}/*.wheel
+$ for TF_SESSION_INTRA_OP_PARALLELISM in 1 2 4
+$ do for TF_SESSION_INTER_OP_PARALLELISM in 1 2 4
+$ do for TF_BATCH_SIZE in 1 2 4 16
+$ do python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmark.py \
+  --forward_only=true --device=cpu --model=resnet --data_format=NHWC \
+  --batch_size=$TF_BATCH_SIZE --num_intra_threads=$TF_SESSION_INTRA_OP_PARALLELISM \
+  --num_inter_threads=$TF_SESSION_INTER_OP_PARALLELISM
+$ done done done done
 ```
 
-Notes: flags needed for Dockerfile.devel-{mkl|eigen|hybrid}
-
-TF_NEED_GCP=1
-TF_NEED_HDFS=1
-TF_NEED_S3=1
-TF_NEED_CUDA=0
-CC_OPT_FLAGS='-mavx'
-
-TF_SERVING_BUILD_OPTIONS="-c opt --define=tensorflow_mkldnn_contraction_kernel=0 --copt=-mavx"
