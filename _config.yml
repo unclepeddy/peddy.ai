@@ -5,8 +5,8 @@ description:
   math | music | machines
 baseurl: "" # empty subpath 
 url: "http://blog.peddy.ai" # the site base hostname & protocol
-twitter_username: unclepeddy
-github_username:  unclepeddy
+twitter_username: misterpeddy
+github_username:  misterpeddy
 
 # Build settings
 markdown: kramdown
