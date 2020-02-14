@@ -35,8 +35,8 @@ Would I let myself live if I didn't start this endavour with a list of requireme
 
 To satisfy all these, I'm going to need the following pieces, some of which I already have:
 
-1. Yamaha CVP 703 (thank you mom & dad!!!)
-2. MPK Mini (best goodbye gift ever!!)
+1. Yamaha CVP 701 
+2. MPK Mini 
 3. Roli Block
 4. External Drive
 5. Macbook Pro
@@ -47,7 +47,7 @@ To satisfy all these, I'm going to need the following pieces, some of which I al
 10. Microphone
 11. A whole lot of MIDI, XLR and TRS cables
 
-While most of the requirements are pretty simple, #3 and #4 are not super straight forward (at least for me). Most people use MIDI controllers to control VST instruments on their computer. In my case, the Yamaha CVP 701 has an absolutely amazing collection of instruments that come pre-installed (to which I estimate they ascribe half of the $5k price of the piano -- again, thank you mom & dad :)) that I wanted to bring directly into my mixes. However, I don't want to just bring the audio recording - I wanted to capture each "Part" (CVP's verbiage for a single layer being played, up to 3 allowed at any given time) separately and bring the MIDI into my DAW, and then muck around with the MIDI on my DAW and route the output to the correct receiver on the Yamaha to hear the audio as if I'm physically playing the part.
+While most of the requirements are pretty simple, #3 and #4 are not super straight forward (at least for me). Most people use MIDI controllers to control VST instruments on their computer. In my case, the Yamaha CVP 701 has an absolutely amazing collection of instruments that come pre-installed (to which I estimate they ascribe half of the $5k price of the piano) that I wanted to bring directly into my mixes. However, I don't want to just bring the audio recording - I wanted to capture each "Part" (CVP's verbiage for a single layer being played, up to 3 allowed at any given time) separately and bring the MIDI into my DAW, and then muck around with the MIDI on my DAW and route the output to the correct receiver on the Yamaha to hear the audio as if I'm physically playing the part.
 
 This required some subtle set-up with how I configured both receiver and return tracks in my DAW and transmitter and receiver channels on my Yamaha, as well as needing to use 2 separate MIDI ports on both my Yamaha, and the audio interface. Happy to explain it further for anyone looking to replicate this set-up :)
 
@@ -61,7 +61,7 @@ Now let's get to the fun part: spending money! Let's figure out exactly what pro
 
 ## DAW Software
 This is by far the easiest. In a previous life, I was a heavy FL Studio user; while I absolutely loved using it, I wanted to try something new this time around. Because I was more interested in music creation rather than mixing, Logic didn't seem like a good fit. Funny enough, I seriously considered Garageband because.. it is actually surprisingly good! But at the end I went with Ableton because 
-* There are very few things you can do with any music software that you can't do with 
+* There are very few things you can do with any music software that you can't do with Ableton
 * There is so much training material online
 * Though the stock plug-ins aren't fantastic, there is a healthy collection of them to get you started
 * It is extremely extensible - you can write $NAME to build completely custom components, one of which I hope to at some point write myself
@@ -143,3 +143,8 @@ The most classic layout is a two-way speaker, employing one woofer to produce lo
 In addition to ensuring the size of the speakers is appropriate for your room (large speakers can easily overpower a small space), you should consider how far away from your ears the speakers will be placed. Nearfield monitors are designed to be placed fairly close to the listeners ears and are perfect for home studios. Midfields and giant, full-range "mains" are usually only used in professional studios with lots of space.
 
 At the end I went with Yamaha $NAME because my good friend has $NAME and they are extremely sharp and critical of every nuance - there's a joke that if you can make your mix sound good with them, it will sound good on an
+
+
+## Closing
+
+I'll probably continue to add various instruments and gear to my studio as the need arises. I'll do my best to keep this up-to-date as a record of why and how I made each purchasing decision.
