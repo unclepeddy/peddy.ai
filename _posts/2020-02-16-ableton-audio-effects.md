@@ -2,10 +2,13 @@
 layout: post
 title:  "Ableton Live Stock Audio Effects"
 date:   2020-02-16
+image:  /assets/2020-02-16-ableton-audio-effects/overview.png
 tags:   music 
 ---
 
-There are ton of third-party audio effect plug-ins that you can find on the internet, costing anywhere from free to thousands of dollars; but one slightly underappreciated collection is the effects that come with Ableton Live. In this post, I'll list them and give a brief description of what each one does. Over time, as I learn how to use them more effectively, I'll likely continue to add notes to this post. Please note that for the sake of completeness, I'm going to go through all effects that come with Ableton Live Suite (as opposed to the Intro or Standard editions).
+There are ton of third-party audio effect plug-ins that you can find on the internet, costing anywhere from free to thousands of dollars; but one slightly underappreciated collection is the effects that come with Ableton Live. 
+
+In this post, I'll list them and give a _brief_ description of what each one does and in what situations one should look into using them. Over time, as I learn how to use them more effectively, I'll likely continue to add notes to this post. For the sake of completeness, I'm going to go through all effects that come with Ableton Live Suite (as opposed to the Intro or Standard editions).
 
 ### Amp
 

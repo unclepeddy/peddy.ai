@@ -2,11 +2,13 @@
 layout: post
 title:  "Building a Home Studio"
 date:   2020-01-20
-image: 
+image: /assets/2020-01-20-building-a-home-studio/setup_pic.jpg
 tags: music 
 ---
 
-# But Why?
+In this post, I'm going to share the planning / design doc I wrote for myself before setting out to build a small home studio.
+
+## But Why?
 
 In the technology industry, developer productivity is something that most business people think of as "the % of our capacity we have to waste in order to keep developers happy." I am a firm believer that (given the right type of talent), developer productivity is perhaps the single most important competitive advantage a tech firm has. This is because there exist problems that simply are not discoverable (let alone be solvable) unless engineers can operate with a certain velocity. [Continuing my trend](../../../../2019/10/25/composability) of applying programming concepts to creative fields, I'd like to argue that the same is true for music creation. 
  
@@ -16,7 +18,7 @@ This can easily be explained by the fact that most extraordinary creations are c
 
 In the rest of this piece, I'll jot down some of my thoughts and analyses as I went about finding the right pieces for a studio that suited me!
 
-# Requirements 
+## Requirements 
 
 Would I let myself live if I didn't start this endavour with a list of requirements and CUJs, or Critical Peddy Journeys? ;)
 
@@ -31,7 +33,7 @@ Would I let myself live if I didn't start this endavour with a list of requireme
 9. I want to easily record video footage of me playing piano from over the top of my head
 10. I want to smile and get a leetle happi every time I look at my set up :)
 
-# Design Overview
+## Design Overview
 
 To satisfy all these, I'm going to need the following pieces, some of which I already have:
 
@@ -55,18 +57,18 @@ The other non-trivial part of this set-up is getting the Roli Block to work with
 
 A basic schematic showing my plan of how to connect various pieces together can be found below:
 
-# Implementation
+## Implementation
 
 Now let's get to the fun part: spending money! Let's figure out exactly what products we'll buy for each one of the pieces identifed above.
 
-## DAW Software
+### DAW Software
 This is by far the easiest. In a previous life, I was a heavy FL Studio user; while I absolutely loved using it, I wanted to try something new this time around. Because I was more interested in music creation rather than mixing, Logic didn't seem like a good fit. Funny enough, I seriously considered Garageband because.. it is actually surprisingly good! But at the end I went with Ableton because 
 * There are very few things you can do with any music software that you can't do with Ableton
 * There is so much training material online
 * Though the stock plug-ins aren't fantastic, there is a healthy collection of them to get you started
 * It is extremely extensible - you can write $NAME to build completely custom components, one of which I hope to at some point write myself
 
-## Audio Interface
+### Audio Interface
 
 The next most important thing is Audio Interface - although they are extremely expensive, I think it's a good idea to spend a bit more to ensure you're getting a quality product. I've been to two separate small-venue concerts where the artist couldn't do their performance because of trouble with their audio interface. 
 
@@ -76,7 +78,7 @@ The slowest connection is USB, seen on most cheaper home studio interfaces. Fire
 
 Unless you're doing some serious live recording, USB speed should be more than fast enough.
 
-### I/O Count and Channel Types
+#### I/O Count and Channel Types
 
 This comes down to the number of tracks you plan to record and monitor concurrently. Unles you're recording a full band, 2-4 I/O slots should do. The exception is if you're recording an electric drum set, which can take up to 8 inputs on its own.
 
@@ -85,11 +87,11 @@ You should also ensure that you have enough mic inputs, line inputs and optical 
 
 At the end I ended up going with $NAME because I needed at least 2 XLR inputs, 1 MIDI input, 1 MIDI output and 1 pre-amp TRS jack with volume control. This was the most basic audio interface that afforded me all of these.
 
-## Headphones
+### Headphones
 
 Headphones can be a bit weird to dish out $100 for.. afterall, what's wrong with your air pods?
 
-### Frequency Response, Impedance & Sensitivity
+#### Frequency Response, Impedance & Sensitivity
 
 The most important characteristic of a pair of headphones is its frequency response. If you're using it for mixing, it's important that the response is as flat as possible so that you're hearing your mix without distortion.
 
@@ -97,7 +99,7 @@ The impedance of the headphones refer to the amount of power required to make th
 
 Sensitivity is often measured at a specific frequency (eg. 1 kHz) at 1 mW of power and expressed as a range (eg. 90-105 dB). What is importantly missing from this metric is 1) the dynamics of the music we're listening to and 2) how THD (total harmonic distortion) changes within that range. The dynamic range (largest to the smallest intensity of sound that can be reproduced by the headphones) can be as large as 20 dB (eg. orchestral classical music) which means the amp has to be able to produce a range of 1 to 100 mW of power with minimal distortion. 
 
-### Closed back vs. open back 
+#### Closed back vs. open back 
 
 Aside from the  accuracy (shape of the frequency response curve that it can output) that you want from your headphones, the next most important decision to make is whether you want close vs. open back headphones.
 
@@ -107,7 +109,7 @@ Usually open-back headphones are used for mixing (where sound quality is most im
 
 At the end, I decided to go with $NAME because it was a relatively cheap closed back pair of headphones, with a decent frequency response that I couldn't find too many bad reviews of - also the fact that my audio interface routed pre-amp mic signal to the TRS jack meant I couldn't go with a high-impedence headphones if I wanted to hear myself when doing vocals.
 
-## Microphone
+### Microphone
 
 There are two umbrella categories of mics: condenser mics and dynamic mics. Let's get slightly nerdy and talk about the technical differences between the two. The dynamic mic is composed of three main parts: the diaphragm, voice coil and a magnet. It works by converting sound waves that hit the diaphragm into electrical signals since the motion of the diaphragm moves the voice coil, whose oscillation around the charged magnet creates a changing magnetic field and thus an electrical current, via magnetic induction.
 
@@ -118,7 +120,7 @@ There are many difference between the two cateogires, but the most important is 
 Aside from lower frequency response and higher volume ranges, dynamic mics are a bit more robust due to their simple construction, causing them to have a lower maintenance cost. However, they do have a worse off-axis performance, usually dropping off a lot of the sound that hits them from the sides.
 
 
-### Cables
+#### Cables
 
 Cables transmitting analog signal can be balanced or unbalanced. We transfer 3 levels of audio: mic level (balanced), instrument level (unbalanced), line level (balanced).
 Line level signal is the standard signal strength used with all pro audio equipment. Instrument level signal comes out of electric bass/guitar, sent through standard guitar cable to a direct box to be boosted to line level. Mic level signal is usually sent through standard microphone cable, goes through mic pre-amp to be boosted to line level.
@@ -127,24 +129,24 @@ Balanced cables, composed of ground, signal (+) and signal (-), are relatively i
 
 Unblanaced cables usually use a TS connector, which only has a tip and sleeve.
 
-## Studio Monitors
+### Studio Monitors
 
-### Sound Amplification 
+#### Sound Amplification 
 
 The signal coming out of mixing desks or audio interfaces are fairly weak so if you're looking to get a lot of sound from your monitors, you'll likely need sound amplification. Active monitors feature an on-board sound amplifier, which means less work for you, but if you go with a passive monitor, you'll have to amplify the signal using a separate amplifier.
 
 Active monitors can be connected to your audio interface with jack, XLR, phono, digital or USB (with jack or XLR having minimal added noise) and feature level control (and sometimes EQ controls) on-board. 
-### Layout (Configuration)
+#### Layout (Configuration)
 
 The most classic layout is a two-way speaker, employing one woofer to produce low ranges and a tweeter for high-mids and high frequencies. The two signals are separated by an on-board crossover filter that splits the signal into low and high bands. The crossover point in two-way speakers, however, usually sits in a cruicial midrange area, which hurts sound quality by introducing phase distortion when the audio, split at the crossover point, collides when radiated from separately located tweeter and woofer. This is why higher-end speakers will often have 3- or even 4-way layouts that aim to keep those mid-range frequencies free from any crossover noise or distortion. Also a coaxial design helps alleviate this to a certain extent in 2-way configurations.
 
-### Listening Distance
+#### Listening Distance
 
 In addition to ensuring the size of the speakers is appropriate for your room (large speakers can easily overpower a small space), you should consider how far away from your ears the speakers will be placed. Nearfield monitors are designed to be placed fairly close to the listeners ears and are perfect for home studios. Midfields and giant, full-range "mains" are usually only used in professional studios with lots of space.
 
 At the end I went with Yamaha $NAME because my good friend has $NAME and they are extremely sharp and critical of every nuance - there's a joke that if you can make your mix sound good with them, it will sound good on an
 
 
-## Closing
+### Closing
 
 I'll probably continue to add various instruments and gear to my studio as the need arises. I'll do my best to keep this up-to-date as a record of why and how I made each purchasing decision.
