@@ -31,7 +31,16 @@ tags: ml, technology
 
 BACKEND = 'wasm'
 
-let faceMeshModel, handPoseModel, canvas, video;
+let handPointList = [];
+let facePointList = [];
+let labelList = [];
+let collectedData = {
+  'facePointList': facePointList,
+  'handPointList': handPointList,
+  'labelList': labelList
+};
+let isCollectionOn = false;
+let label = true;
 
 async function setupCamera() {
   video = document.getElementById('video');
@@ -78,20 +87,12 @@ function drawHand(ctx, keyPoints, annotations) {
   }
 }
 
-function renderFaceMeshes(faceMeshes) {
-  if (faceMeshes != undefined && faceMeshes.length > 0) {
-    faceMeshes.forEach(faceMesh => {
-      const keyPoints = faceMesh.scaledMesh;
-      drawPoints(ctx, keyPoints, 1);
-    });
-  }
-}
-
-function renderHandPoses(handPoses) {
-  if (handPoses != undefined && handPoses.length > 0) {
-    const keyPoints = handPoses[0].landmarks;
-    const annotations = handPoses[0].annotations;
-    drawHand(ctx, keyPoints, annotations);
+function logPoints(facePoints, handPoints) {
+  if (isCollectionOn) {
+    facePointList.push(facePoints);
+    handPointList.push(handPoints);
+    labelList.push(label);
+    console.log("List at size: " + labelList.length);
   }
 }
 
@@ -99,18 +100,36 @@ function drawFrame(canvas, video, inferences) {
   const faceMeshes = inferences[0];
   const handPoses = inferences[1];
   const ctx = canvas.getContext('2d');
+
   ctx.drawImage(
       video, 0, 0, video.width, video.height, 0, 0, canvas.width, canvas.height);
-  renderFaceMeshes(faceMeshes);
-  renderHandPoses(handPoses);
+
+  // Render FaceMesh 
+  let facePoints;
+  if (faceMeshes != undefined && faceMeshes.length > 0) {
+    facePoints = faceMeshes[0].scaledMesh;
+    drawPoints(ctx, facePoints, 1);
+  }
+
+  // Render HandPose 
+  let handPoints;
+  if (handPoses != undefined && handPoses.length > 0) {
+    handPoints = handPoses[0].landmarks;
+    const handAnnotations = handPoses[0].annotations;
+    drawHand(ctx, handPoints, handAnnotations);
+  }
+  
+  logPoints(facePoints, handPoints);
 }
 
-async function computeAndRenderFrames() {
-  Promise.all([
-      faceMeshModel.estimateFaces(video), 
-      handPoseModel.estimateHands(video)])
-    .then((inferences) => drawFrame(canvas, video, inferences))
-    .then(() => requestAnimationFrame(computeAndRenderFrames));
+async function computeAndRenderFrames(canvas, video, faceMesh, handPose) {
+  (function update() {
+    Promise.all([
+        faceMesh.estimateFaces(video), 
+        handPose.estimateHands(video)])
+      .then((inferences) => drawFrame(canvas, video, inferences))
+      .then(() => requestAnimationFrame(update));
+  })()
 }
 
 async function main() {
@@ -122,7 +141,7 @@ async function main() {
   try {
     video = await setupCamera();
   } catch(err) {
-    console.error("Could not retrieve webcam feed: " + err);
+    return console.error("Could not retrieve webcam feed: " + err);
   }
 
   video.play();
@@ -142,10 +161,37 @@ async function main() {
   ctx.strokeStyle = '#32EEDB';
   ctx.lineWidth = 0.5;
 
-  faceMeshModel = await facemesh.load({maxFaces: 1});
-  handPoseModel = await handpose.load();
-  computeAndRenderFrames();
+  let faceMesh = await facemesh.load({maxFaces: 1});
+  let handPose = await handpose.load();
+  computeAndRenderFrames(canvas, video, faceMesh, handPose);
 }
+
+(function(console){
+
+  console.save = function(data, filename){
+
+      if(!data) {
+          console.error('Console.save: No data')
+          return;
+      }
+
+      if(!filename) filename = 'console.json'
+
+      if(typeof data === "object"){
+          data = JSON.stringify(data, undefined, 4)
+      }
+
+      var blob = new Blob([data], {type: 'text/json'}),
+          e    = document.createEvent('MouseEvents'),
+          a    = document.createElement('a')
+
+      a.download = filename
+      a.href = window.URL.createObjectURL(blob)
+      a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':')
+      e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+      a.dispatchEvent(e)
+  }
+})(console)
 
 main();
 
