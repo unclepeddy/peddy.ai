@@ -12,8 +12,8 @@ Email: peddy@peddy.ai
 
 I'm not particularly active on Twitter, but it has led me to find some fascinating people.
 
-Twitter: [@unclepeddy](https://twitter.com/unclepeddy)
+Twitter: [@misterpeddy](https://twitter.com/misterpeddy)
 
 I'm a huge proponent of open source software and try to do most of my development work in the open.
 
-Github: [@unclepeddy](https://github.com/unclepeddy)
+Github: [@misterpeddy](https://github.com/misterpeddy)
