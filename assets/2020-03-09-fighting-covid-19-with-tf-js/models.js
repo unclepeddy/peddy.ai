@@ -1,10 +1,10 @@
 // TODO(peddy): Fix the CORS issue on 302 redirect and use canonical model URL
-// const COVID_TFJS_MODEL_URL = "http://models.peddy.ai/covid.js/05-03-20-0/model.json"
-const COVID_TFJS_MODEL_URL = "https://storage.googleapis.com/peddy-ai-models/covid.js/05-03-20-0/model.json"
+// const MODEL_URL = "http://models.peddy.ai/covid.js/05-03-20-0/model.json"
+const MODEL_URL = "https://storage.googleapis.com/peddy-ai-models/covid.js/05-03-20-0/model.json"
+const MODEL_LOCAL_PATH = "models/05-03-20-0/model.json"
 
-// TODO(peddy): Check and set BACKEND to the most performant option with available hardware 
-const BACKEND = 'wasm'
-const IS_INFERENCE_VERBOSE = true
+const BACKEND = 'wasm';
+const IS_INFERENCE_VERBOSE = false;
 
 let faceMesh, handPose, classifier, initialized;
 
@@ -15,11 +15,7 @@ let faceMesh, handPose, classifier, initialized;
  * and loads the frozen classifer into memory, all in parallel.
  */
 async function initialize() {
-  try {
-    await tf.setBackend(BACKEND);
-  } catch(err) {
-    console.log(BACKEND + " could not be initialized - fallbacking to CPU: " + err);
-  }
+  await tf.setBackend(BACKEND);
 
   function completeInit(models) {
     if (models.length != 3)
@@ -32,12 +28,11 @@ async function initialize() {
     initialized = true;
   }
 
-  const tfjsRequestOptions = {mode: 'cors'};
-
   const modelPromises = [
     facemesh.load({maxFaces: 1}),
     handpose.load(),
-    tf.loadGraphModel(COVID_TFJS_MODEL_URL, tfjsRequestOptions)
+    tf.loadGraphModel(MODEL_URL, {mode: 'cors'})
+    .catch(()=>{return tf.loadGraphModel(MODEL_LOCAL_PATH)})
   ];
 
   return Promise.all(modelPromises)
@@ -70,13 +65,13 @@ async function computeCombinedKeyPoints(video) {
 
 /*
  * Given the face and hand keypoints extracted from an image,
- * returns whether the classifier infers hand is touching
- * the face.
+ * returns a promise for there inference result (probability 
+ * that the hand is touching the face).
  */
 function computeInference(faceKeyPoints, handKeyPoints) {
   validateInit();
   if (faceKeyPoints == undefined || handKeyPoints == undefined)
-    return undefined;
+    return Promise.reject("Both key points must be set");
 
   const fp = tf.tensor(faceKeyPoints).expandDims(0);
   const hp = tf.tensor(handKeyPoints).expandDims(0); 
@@ -87,10 +82,11 @@ function computeInference(faceKeyPoints, handKeyPoints) {
   
   const inference = classifier.predict(inputs, {verbose: IS_INFERENCE_VERBOSE});
 
-  if (IS_INFERENCE_VERBOSE)
-    console.log("Inference output: ", inference);
+  if (IS_INFERENCE_VERBOSE) {
+    console.log(inference);
+  }
 
-  return inference;
+  return inference.data();
 }
 
 export {initialize, computeCombinedKeyPoints, computeInference}

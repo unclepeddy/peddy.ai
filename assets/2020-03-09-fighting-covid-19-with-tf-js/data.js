@@ -1,41 +1,34 @@
-let handPointList = [];
-let facePointList = [];
-let labelList = [];
+import * as ui from './ui.js';
+
 let collectedData = {
-  'facePointList': facePointList,
-  'handPointList': handPointList,
-  'labelList': labelList
+  'facePointList': [],
+  'handPointList': [],
+  'labelList': []
 };
 
 /*
  * Stages the given features and label in in-memory data 
  * structures; intended to be called many times, 
  * preeceding a call to save().
+ * Returns the number of items staged so far.
  */
 function collectFeatures(facePoints, handPoints, label) {
-  facePointList.push(facePoints);
-  handPointList.push(handPoints);
-  labelList.push(label);
-  console.log("List at size: " + labelList.length);
+  collectedData['facePointList'].push(facePoints);
+  collectedData['handPointList'].push(handPoints);
+  collectedData['labelList'].push(label);
+  return collectedData['labelList'].length;
 }
 
 /*
- * Writes an arbitrary structured or blob of data
- * to given filename, defaulting to 'console.json'.
+ * Downloads the collected data as a JSON file and resets
+ * the staging buffers (collectedData).
  */
-function save(data, filename){
-  if(!data) {
-    console.error('Console.save: No data')
-    return;
-  }
+function exportData(){
+  const filename = 'data.json';
 
-  if(!filename) filename = 'console.json'
+  const data = JSON.stringify(collectedData, undefined, 4)
 
-  if(typeof data === "object"){
-    data = JSON.stringify(data, undefined, 4)
-  }
-
-  var blob = new Blob([data], {type: 'text/json'}),
+  const blob = new Blob([data], {type: 'text/json'}),
     e = document.createEvent('MouseEvents'),
     a = document.createElement('a')
 
@@ -44,11 +37,14 @@ function save(data, filename){
   a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':')
   e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
   a.dispatchEvent(e)
+
+  Object.keys(collectedData).forEach(key => collectedData[key] = []);
+  ui.updateCollectionText(0);
 }
 
 // alias to console.save for easy saving from console
 (function(console){
-  console.save = save;
+  console.save = exportData;
 })(console)
 
-export {collectFeatures, save}
+export {collectFeatures, exportData}

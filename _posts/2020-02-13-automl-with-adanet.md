@@ -46,5 +46,4 @@ $$F(w) = (\dfrac{1}{m}\sum_{i=1}^{m}\Phi(\sum_{j=1}^{N}w_j h_j(x_i), y_i)) + \su
 
 This loss function is used both to learn to scale and transform the outputs of each subnetwork, as well as to rank and select the best candidate networks at each iteration of the search.
 
-
-
+TODO: Import the graphic and describe the algorithm pictorially.

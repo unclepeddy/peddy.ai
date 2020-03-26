@@ -12,7 +12,7 @@ In this post, I'm going to share the planning / design doc I wrote for myself be
 
 In the technology industry, developer productivity is something that most business people think of as "the % of our capacity we have to waste in order to keep developers happy." I am a firm believer that (given the right type of talent), developer productivity is perhaps the single most important competitive advantage a tech firm has. This is because there exist problems that simply are not discoverable (let alone be solvable) unless engineers can operate with a certain velocity. [Continuing my trend](../../../../2019/10/25/composability) of applying programming concepts to creative fields, I'd like to argue that the same is true for music creation. 
  
-After a 10-year hiatus, I recently started to write music again; recently thereafter, I set out to bulid a small home studio to motivate myself to take it more seriously. Simply by allowing certain workflows (recording a riff on my piano, importing it into Ableton, applying some MIDI/sound effects, and playing on top of it) to happen more seamlessly (1-hour per iteration cycle to 5 minutes), I have started to not only write music more quickly, but also create pieces of a quality and nature that I did not think was even possible. 
+After a 10-year hiatus, I recently started to write music again; recently thereafter, I set out to build a small home studio to motivate myself to take it more seriously. Simply by allowing certain workflows (recording a riff on my piano, importing it into Ableton, applying some MIDI/sound effects, and playing on top of it) to happen more seamlessly (1-hour per iteration cycle to 5 minutes), I have started to not only write music more quickly, but also create pieces of a quality and nature that I did not think was even possible. 
 
 This can easily be explained by the fact that most extraordinary creations are composed of many ordinary layers, configured in non-trivial ways; when you make it easy to create and compose many ordinary layers, you make it more likely that one of those non-trivial configurations happens, giving rise to an extraordinary creation. So, when people say "iteration time matters above all else" -- yeah, it's true!
 
@@ -20,7 +20,7 @@ In the rest of this piece, I'll jot down some of my thoughts and analyses as I w
 
 ## Requirements 
 
-Would I let myself live if I didn't start this endavour with a list of requirements and CUJs, or Critical Peddy Journeys? ;)
+Would I let myself live if I didn't start this endeavour with a list of requirements and CUJs, or Critical Peddy Journeys? ;)
 
 1. I want to improvise for O(hour) without knowing a priori whether I'm going to want to keep any pieces of the improvisation (always-on, infinite-length recording buffer)
 2. I want to record both MIDI and audio coming from Yamaha CVP 701
@@ -28,7 +28,7 @@ Would I let myself live if I didn't start this endavour with a list of requireme
 4. My Yamaha can route 3 MIDI channels to its amazing collection of VRM instruments; I want to capture each audio channel individually
 5. I want to control my DAW with my MPK Mini
 6. I want to route both MIDI coming from my Roli Block, as well as the sound from Roli Studio to my DAW
-7. I want to record an electirc guitar, a voice track and audio coming from my Yamaha simluntanously
+7. I want to record an electric guitar, a voice track and audio coming from my Yamaha simultaneously
 8. I want to hear a flat profile whether I'm mixing with friends (over speaker monitors) or by myself (with headphones on)
 9. I want to easily record video footage of me playing piano from over the top of my head
 10. I want to smile and get a leetle happi every time I look at my set up :)
@@ -43,7 +43,7 @@ To satisfy all these, I'm going to need the following pieces, some of which I al
 4. External Drive
 5. Macbook Pro
 6. DAW
-7. Speaker Mintors
+7. Speaker Monitors 
 8. Headphones
 9. Audio Interface
 10. Microphone
@@ -59,14 +59,14 @@ A basic schematic showing my plan of how to connect various pieces together can 
 
 ## Implementation
 
-Now let's get to the fun part: spending money! Let's figure out exactly what products we'll buy for each one of the pieces identifed above.
+Now let's get to the fun part: spending money! Let's figure out exactly what products we'll buy for each one of the pieces identified above.
 
 ### DAW Software
 This is by far the easiest. In a previous life, I was a heavy FL Studio user; while I absolutely loved using it, I wanted to try something new this time around. Because I was more interested in music creation rather than mixing, Logic didn't seem like a good fit. Funny enough, I seriously considered Garageband because.. it is actually surprisingly good! But at the end I went with Ableton because 
 * There are very few things you can do with any music software that you can't do with Ableton
 * There is so much training material online
 * Though the stock plug-ins aren't fantastic, there is a healthy collection of them to get you started
-* It is extremely extensible - you can write $NAME to build completely custom components, one of which I hope to at some point write myself
+* It is extremely extensible - you can write plugins to build completely custom components, one of which I hope to at some point write myself
 
 ### Audio Interface
 
@@ -80,16 +80,16 @@ Unless you're doing some serious live recording, USB speed should be more than f
 
 #### I/O Count and Channel Types
 
-This comes down to the number of tracks you plan to record and monitor concurrently. Unles you're recording a full band, 2-4 I/O slots should do. The exception is if you're recording an electric drum set, which can take up to 8 inputs on its own.
+This comes down to the number of tracks you plan to record and monitor concurrently. Unless you're recording a full band, 2-4 I/O slots should do. The exception is if you're recording an electric drum set, which can take up to 8 inputs on its own.
 
 You should also ensure that you have enough mic inputs, line inputs and optical inputs (if you plan to pass an instrument's output through a ADC before the audio interface). 
 
 
-At the end I ended up going with $NAME because I needed at least 2 XLR inputs, 1 MIDI input, 1 MIDI output and 1 pre-amp TRS jack with volume control. This was the most basic audio interface that afforded me all of these.
+At the end I ended up going with Focusrite Scarlett 6i6 because I needed at least 2 XLR inputs, 1 MIDI input, 1 MIDI output and 1 pre-amp TRS jack with volume control. This was the most basic audio interface that afforded me all of these.
 
 ### Headphones
 
-Headphones can be a bit weird to dish out $100 for.. afterall, what's wrong with your air pods?
+Headphones can be a bit weird to dish out $100 for.. after all, what's wrong with your air pods?
 
 #### Frequency Response, Impedance & Sensitivity
 
@@ -107,15 +107,15 @@ Open back headphones allow sound to pass through the back of the ear cups while 
 
 Usually open-back headphones are used for mixing (where sound quality is most important) and closed-back headphones for recording (where isolation is most important). A compromise between open and closed headphones is semi-open headphones that offer more spacious sound without letting too much noise in or out.
 
-At the end, I decided to go with $NAME because it was a relatively cheap closed back pair of headphones, with a decent frequency response that I couldn't find too many bad reviews of - also the fact that my audio interface routed pre-amp mic signal to the TRS jack meant I couldn't go with a high-impedence headphones if I wanted to hear myself when doing vocals.
+At the end, I decided to go with $NAME because it was a relatively cheap closed back pair of headphones, with a decent frequency response that I couldn't find too many bad reviews of - also the fact that my audio interface routed pre-amp mic signal to the TRS jack meant I couldn't go with a high-impedance headphones if I wanted to hear myself when doing vocals.
 
 ### Microphone
 
 There are two umbrella categories of mics: condenser mics and dynamic mics. Let's get slightly nerdy and talk about the technical differences between the two. The dynamic mic is composed of three main parts: the diaphragm, voice coil and a magnet. It works by converting sound waves that hit the diaphragm into electrical signals since the motion of the diaphragm moves the voice coil, whose oscillation around the charged magnet creates a changing magnetic field and thus an electrical current, via magnetic induction.
 
-A condenser mic, however, is composed of a diaphragm case, a diaphragm and a backplate. When the capsule is charged, it creates an electric field, which changes as audio waves hit the diaphragm, causing it to move closer and farther away from the backplate. This change in electric field can be measured and the audio signal can be recovered from it. It's worth noting that some condenser mics (standard condenser mics) require phantom power to charge the capsule, while electric condenser mics have a permenantly charged capsule, not requiring an external source of power.
+A condenser mic, however, is composed of a diaphragm case, a diaphragm and a backplate. When the capsule is charged, it creates an electric field, which changes as audio waves hit the diaphragm, causing it to move closer and farther away from the backplate. This change in electric field can be measured and the audio signal can be recovered from it. It's worth noting that some condenser mics (standard condenser mics) require phantom power to charge the capsule, while electric condenser mics have a permanently charged capsule, not requiring an external source of power.
 
-There are many difference between the two cateogires, but the most important is frequency response. Condenser mics work better on higher frequency instruments (acoustic guiter, piano, cymbals) whereas dynamic mics are best on drums, electric guitars and other low-mid frequency instruments, and in general have a lower frequency response - however, they do handle extremely loud signals better. 
+There are many difference between the two categories, but the most important is frequency response. Condenser mics work better on higher frequency instruments (acoustic guitar, piano, cymbals) whereas dynamic mics are best on drums, electric guitars and other low-mid frequency instruments, and in general have a lower frequency response - however, they do handle extremely loud signals better. 
 
 Aside from lower frequency response and higher volume ranges, dynamic mics are a bit more robust due to their simple construction, causing them to have a lower maintenance cost. However, they do have a worse off-axis performance, usually dropping off a lot of the sound that hits them from the sides.
 
@@ -127,7 +127,7 @@ Line level signal is the standard signal strength used with all pro audio equipm
 
 Balanced cables, composed of ground, signal (+) and signal (-), are relatively immune to noise and interference from things like radio waves and nearby electronic equipment. Balanced cables come with the following connection ends. You can see that the XLR male and female have 3 pins/holes and TRS the 3 surfaces (tip, ring, sleeve) for the three signals.
 
-Unblanaced cables usually use a TS connector, which only has a tip and sleeve.
+Unbalanced cables usually use a TS connector, which only has a tip and sleeve.
 
 ### Studio Monitors
 
@@ -138,13 +138,13 @@ The signal coming out of mixing desks or audio interfaces are fairly weak so if 
 Active monitors can be connected to your audio interface with jack, XLR, phono, digital or USB (with jack or XLR having minimal added noise) and feature level control (and sometimes EQ controls) on-board. 
 #### Layout (Configuration)
 
-The most classic layout is a two-way speaker, employing one woofer to produce low ranges and a tweeter for high-mids and high frequencies. The two signals are separated by an on-board crossover filter that splits the signal into low and high bands. The crossover point in two-way speakers, however, usually sits in a cruicial midrange area, which hurts sound quality by introducing phase distortion when the audio, split at the crossover point, collides when radiated from separately located tweeter and woofer. This is why higher-end speakers will often have 3- or even 4-way layouts that aim to keep those mid-range frequencies free from any crossover noise or distortion. Also a coaxial design helps alleviate this to a certain extent in 2-way configurations.
+The most classic layout is a two-way speaker, employing one woofer to produce low ranges and a tweeter for high-mids and high frequencies. The two signals are separated by an on-board crossover filter that splits the signal into low and high bands. The crossover point in two-way speakers, however, usually sits in a crucial midrange area, which hurts sound quality by introducing phase distortion when the audio, split at the crossover point, collides when radiated from separately located tweeter and woofer. This is why higher-end speakers will often have 3- or even 4-way layouts that aim to keep those mid-range frequencies free from any crossover noise or distortion. Also a coaxial design helps alleviate this to a certain extent in 2-way configurations.
 
 #### Listening Distance
 
 In addition to ensuring the size of the speakers is appropriate for your room (large speakers can easily overpower a small space), you should consider how far away from your ears the speakers will be placed. Nearfield monitors are designed to be placed fairly close to the listeners ears and are perfect for home studios. Midfields and giant, full-range "mains" are usually only used in professional studios with lots of space.
 
-At the end I went with Yamaha $NAME because my good friend has $NAME and they are extremely sharp and critical of every nuance - there's a joke that if you can make your mix sound good with them, it will sound good on an
+At the end I went with Yamaha HS8 because my good friend has the HS5 monitors and they are extremely sharp and critical of every nuance - there's a joke that if you can make your mix sound good with them, it will sound good on an
 
 
 ### Closing
