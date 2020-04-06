@@ -5,7 +5,7 @@ date: 2019-08-14
 
 Personality is an extremely hard topic to try to dissect; there is a ton of literature on the topic (mostly in psych journals) attempting to assemble an understanding of the topic in a top-down manner (by starting with our intuition about personality, and iteratively breaking it down to more concrete building blocks). 
 
-My mental model of personality is heavily based on Bayesian Ntworks, and of course, builds on my mental model of [intelligence](http://blog.peddy.ai/2019/04/04/unified-intelligence-v2/) (which I view as a prerequisite for the existence of personality).
+My mental model of personality is heavily based on Bayesian Networks, and of course, builds on my mental model of [intelligence](http://blog.peddy.ai/2019/04/04/unified-intelligence-v2/) (which I view as a prerequisite for the existence of personality).
 
 When an event takes place, we sense and perceive it. Our perceptual systems (sight, hearing, etc.) interpret the raw signals they receive from our sensory devices (eyes, ears, etc.) and transform them into a shape that can be understood by other networks in the cortex. It is at this point that the event has been understood, a ground truth about the state of the world has been established, and your brain has to figure out what to do next. 
 
