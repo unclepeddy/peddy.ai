@@ -15,7 +15,7 @@ plugins:
   - jekyll-feed
   - jekyll-auto-image
   - jekyll-sitemap
-permalink: pretty
+permalink: /posts/:title
 
 # Custom collections settings
 collections:
