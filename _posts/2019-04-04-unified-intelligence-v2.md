@@ -2,7 +2,7 @@
 layout: post
 title:  "Unified Intelligence v2"
 date:   2019-04-04
-tags: ml technology
+tags: machine-learning technology
 ---
 
 ## Background

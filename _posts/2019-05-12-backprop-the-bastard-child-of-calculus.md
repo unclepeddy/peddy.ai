@@ -2,7 +2,7 @@
 layout: post
 title:  "Backprop: The Bastard Child of Calculus"
 date:   2019-05-12
-tags: ml technology math
+tags: machine-learning technology math
 ---
 
 Calculus is possibly the most powerful tool humanity has invented, appearing in physical sciences, actuarial science, computer science, statistics, engineering, economics, business, medicine, demography, and many many more. 
@@ -10,14 +10,14 @@ Richard Feynman famously said "Calculus is the language God speaks." Regardless 
 
 Many think of the value of Calculus in that it affords us the following capability: Given a problem that can be modeled mathematically (meaning we can come up with a description of the system using mathematical concepts and language), calculus allows us to find an optimal solution (for some definition of optimality).
 
-While this is not incorrect (Calculus is often used for finding rates of change and thus locating optimality), it greatly undersubscribes to the power and beauty of this technqiue by framing it as a general-purpose optimization technique.
+While this is not incorrect (Calculus is often used for finding rates of change and thus locating optimality), it greatly undersubscribes to the power and beauty of this technique by framing it as a general-purpose optimization technique.
 
 So how would I describe the value of Calculus? 
 
-I think of Calculus as an approach to problems sovling; one that is built upon a single insight: continuity enables recursion ad infinitum.
+I think of Calculus as an approach to problems solving; one that is built upon a single insight: continuity enables recursion ad infinitum.
 
-This means that given a continous problem, we can break it up into small pieces, solve the small pieces, and combine the solutions together to solve the original problem. Calculus gives us a formal language to apply this approach (divide-and-conquer) to _any_ problem with a continuous mathemtical description.
-This profound insight was first made by Euodoxus and Archimedes thousands of years ago, but was revolutionzied by Newton and Leibniz who were able to devise 1) A general set of primitives and 2) A rigorous set of mechanics via which to manipulate those primitives. We call these primitives and mechanics Calculus.
+This means that given a continuous problem, we can break it up into small pieces, solve the small pieces, and combine the solutions together to solve the original problem. Calculus gives us a formal language to apply this approach (divide-and-conquer) to _any_ problem with a continuous mathematical description.
+This profound insight was first made by Euodoxus and Archimedes thousands of years ago, but was revolutionized by Newton and Leibniz who were able to devise 1) A general set of primitives and 2) A rigorous set of mechanics via which to manipulate those primitives. We call these primitives and mechanics Calculus.
 
 The Fundamental theorem of calculus states, given an arbitrary function $$F(x)$$ (not entirely arbitrary, a few restrictions apply..) , we can claim there exists a related function $$f(x)$$ such that for any region described by endpoints $$a$$ and $$b$$:
 $$ \int_a^b f(x) dx = F(b) - F(a) $$
@@ -52,7 +52,7 @@ Namely, We are on the quest to find ways to make our current learning algorithms
 Unraveling the layers of abstraction one more time, this is by in large a credit assignment problem: given a single data point, tweak the parameters of the decision function such that the correct or better answer is more likely; in other words, how do you assign credit or blame to the individual parameters of the function, given some notion of correctness of the overall behavior of the system.
 
 As you may notice, this is a problem space where we expect calculus to pop up: given information at the boundary of an object (a function's input and output interface) we need to tweak the internal mechanics of the function such that some auxiliary conditions are optimized.  
-Of course, to date, our best solution to this problem is rested heavily on technical insights of Calculus. In most learning domains, the most common implementation of credit assignment is built upon backpropogation, an algorithm that given deviations between expected results and those realized by a neural network, will determine how much and in which direction each parameter of the network should change.
+Of course, to date, our best solution to this problem is rested heavily on technical insights of Calculus. In most learning domains, the most common implementation of credit assignment is built upon back propagation, an algorithm that given deviations between expected results and those realized by a neural network, will determine how much and in which direction each parameter of the network should change.
 
 To date, backprop has achieved incredible results in helping train artificial neural networks. In fact, just last Friday, I had the privilege of celebrating with Geoff Hinton his receiving of the Turing Award (along with Y. Bengio and Y. Lecun) for formulating this algorithm many years ago. However, as Geoff notes himself, there is a somewhat off putting fact about backprop: it isn't validated by nature (i.e. it's not how biological neural networks learn).
 While we have strong evidence to believe that biological neural networks implement a learning algorithm that is vastly different than backprop, many researches believe it is here to stay as the bedrock of learning in the next few years or decade, and it is more likely than not that that is the case. Deep learning is only at the beginning of transforming almost everything that we do as humans, and backprop is an essential part of the story.

@@ -3,7 +3,7 @@ layout: post
 title:  "Recurrent Neural Networks"
 date:   2019-05-26
 image: /assets/2019-05-26-Recurrent-Neural-Networks/rnn_rnn_unrolled.png
-tags: ml
+tags: machine-learning 
 ---
 
 Traditional neural networks (multilayer perceptron and associated feed-forward architectures) do not perform well on sequence data. 
@@ -21,13 +21,13 @@ While this gets the size of the encoding under control, it loses all information
 
 What if we made a compromise and used a fixed-length window, but a very large one? We can assume for example that context from elements any more than 100 steps ago should not be needed when thinking about the current element.
 
-This is a reasonable compormise, but still has the problem that the neurons that will be operating at data on one end of the sequence will never get the chance to see the information in the beginning of the sequence.
+This is a reasonable compromise, but still has the problem that the neurons that will be operating at data on one end of the sequence will never get the chance to see the information in the beginning of the sequence.
 
 Therefore, we really do need a new architecture that is specifically designed for sequential data. At a high level, we can think about three sources of difficulty presented by sequential data:
 
 1. For most sequential data, the length of the sequence need be a free parameter whereas feed forward networks require fixed-size inputs.
-2. The order of data needs to somehow be perserved and modeled, something that FF's don't do well
-3. In addition to perserving order, reasoning about sequential data may require a notion of memory. Meaning, when operating on $$X_i$$, we may need information about $$X_{i-n}$$ for some large $$n$$ to arrive at the correct answer. This requires us to design the network in a way that allows a single (or a set of) neuron to both see all examples, as well as be able to have the capability to relate information from different positions in the sequence to one another.
+2. The order of data needs to somehow be preserved and modeled, something that FF's don't do well
+3. In addition to preserving order, reasoning about sequential data may require a notion of memory. Meaning, when operating on $$X_i$$, we may need information about $$X_{i-n}$$ for some large $$n$$ to arrive at the correct answer. This requires us to design the network in a way that allows a single (or a set of) neuron to both see all examples, as well as be able to have the capability to relate information from different positions in the sequence to one another.
 
 # Recurrent Neural Networks
 
@@ -73,8 +73,8 @@ The mitigation for this situation is a new architecture, one that allows informa
 
 There are two important distinctions about LSTMs:
 
-* They maintain separate cell state from what is outputed in order to isolate the complex calculations needed to update the cell's state from what will be needed to calculate gradients for BPTT
-* They add or remove information to the cell's state through structures called gates (similar to the idead of gates in Digital Logic Design)
+* They maintain separate cell state from what is outputted in order to isolate the complex calculations needed to update the cell's state from what will be needed to calculate gradients for BPTT
+* They add or remove information to the cell's state through structures called gates (similar to the ideas of gates in Digital Logic Design)
 
 Let's take a quick look at the schema of an LSTM cell:
 
@@ -122,7 +122,7 @@ $$h_t = o_t * tanh(C_t)$$
 
 # Wrap-up
 
-Notice how in this formulation, gradients of $$C_t$$ can flow through the top of the cell unafected by the heavy computation going on local to each cell. This was the main motivation behind LSTMs, and why they allow networks to reason using long-term dependencies.
+Notice how in this formulation, gradients of $$C_t$$ can flow through the top of the cell unaffected by the heavy computation going on local to each cell. This was the main motivation behind LSTMs, and why they allow networks to reason using long-term dependencies.
 
 It's worth noting that there are many variants of LSTM cells, all implementing the same idea with slightly different mechanics, ex. via adding peephole connections or coupling the forget and input gates more closely than we have done.
 

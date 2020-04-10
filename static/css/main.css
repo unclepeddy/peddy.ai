@@ -19,6 +19,21 @@ h3
   margin-top: 0.5em
 }
 
+.post-tag
+{
+  border-radius: 20px;
+  border: 1px solid #828282;
+  color: #828282;
+  padding: 1px 5px;
+  margin-left: 5px;
+}
+.post-tag:hover {
+    border: 1px solid #a23282;
+    text-decoration: none;
+    color: #ffffff;
+    background: #a23282;
+}
+
 figure .center-image
 {
     margin: 0 auto;

@@ -2,7 +2,7 @@
 layout: post
 title: Fighting COVID-19 with TensorFlow.js
 date: 2020-03-09
-tags: ml, technology
+tags: machine-learning technology
 ---
 
 In this post, we're going to show how we can use TensorFlow JS to fight the spread of the Coronavirus. Please note, this is mostly an educational exercise.. so please don't take it too seriously.

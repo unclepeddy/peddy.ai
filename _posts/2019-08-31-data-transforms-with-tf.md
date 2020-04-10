@@ -1,25 +1,25 @@
 ---
 layout: post
-title:  "Data Transformations with Tensorflow"
+title:  "Data Transformations with TensorFlow"
 date:   2019-08-31
-tags: ml 
+tags: machine-learning 
 ---
 
 ## Background
 
 When applying machine learning to real world use cases, a common observation is that data cleaning and preprocessing is an extremely difficult and tedious task, due to the need to convert large datasets between formats, tokenize and stem texts and convert them into numbers using large vocabularies, and carry out a whole host of numerical computations on individual elements, as well as over entire datasets.
 
-There are a large number of technologies (hadoop, Spark, etc.) that solve this exact problem; however, the issue is that unless you have implemented the learner via those platforms as well, you'll end up having to separate out your modeling logic to a "core model" and pre-/post-processing components. This is extremely dangerous because while these systems are extremely tightly coupled, they are developed using different codebases and deployed via separate pipelines, which introduces many opportunities for both code and data bugs to be introduced into the system.
+There are a large number of technologies (Hadoop, Spark, etc.) that solve this exact problem; however, the issue is that unless you have implemented the learner via those platforms as well, you'll end up having to separate out your modeling logic to a "core model" and pre-/post-processing components. This is extremely dangerous because while these systems are extremely tightly coupled, they are developed using different codebases and deployed via separate pipelines, which introduces many opportunities for both code and data bugs to be introduced into the system.
 
-Enter tf.Transform: a library and TFX component that allows users to define preprocessing pipelines using Tensorflow, whose computation is realized via any Beam Executors. Because these pipelines are expressed using TF, they can be serialized and saved into a SavedModel, which will be deployed directly with the model. This approach has the following benefits:
+Enter tf.Transform: a library and TFX component that allows users to define preprocessing pipelines using TensorFlow, whose computation is realized via any Beam Executors. Because these pipelines are expressed using TF, they can be serialized and saved into a SavedModel, which will be deployed directly with the model. This approach has the following benefits:
 
 * Use the same codebase to express data transformation and pre-processing as your model
 * Atomically deploy your model and the data processing pipelines
 * Avoid training-serving skew by ensuring the same exact preprocessing logic is running at training and inference time 
 
-While Tensorflow natively has support for data transformations over single examples or a batch of examples, TFT extends these capabilities by allowing the user to express transformations that require full-passes over the data.
+While TensorFlow natively has support for data transformations over single examples or a batch of examples, TFT extends these capabilities by allowing the user to express transformations that require full-passes over the data.
 
-For example, the `tft.scale_to_z_score` will compute the mean and standard deviation of a feature, and emit a Tensorflow graph that will be attached to the graph of the learner. However, if naively implemented using only TF ops, then this would be equivalent to placing this preprocessing graph inside the `input_fn` and accepting batches of inputs, doing some computation on that batch and yielding an output. To enable full-pass operations, TFT provides special functions called `analyzers` that appear like ordinary TF ops, but underneath the hood, specify deferred computations that will be executed by some Beam exectuor, and whose output will later be inserted into the graph as constants, allowing the pipeline to compute global transforms and reductions.
+For example, the `tft.scale_to_z_score` will compute the mean and standard deviation of a feature, and emit a TensorFlow graph that will be attached to the graph of the learner. However, if naively implemented using only TF ops, then this would be equivalent to placing this preprocessing graph inside the `input_fn` and accepting batches of inputs, doing some computation on that batch and yielding an output. To enable full-pass operations, TFT provides special functions called `analyzers` that appear like ordinary TF ops, but underneath the hood, specify deferred computations that will be executed by some Beam exectuor, and whose output will later be inserted into the graph as constants, allowing the pipeline to compute global transforms and reductions.
 
 ## Overview
 

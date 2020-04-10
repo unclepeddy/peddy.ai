@@ -2,7 +2,7 @@
 layout: post
 title: "AutoML with AdaNet"
 date: 2020-02-13
-tags: ml, math
+tags:  machine-learning math
 ---
 
 ## Background

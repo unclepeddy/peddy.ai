@@ -5,7 +5,13 @@ layout: base
 </head>
 <div class="post block">
   <h1 class="post title">{{ page.title }}</h1>
-  <h3 class="post date">Written on {{ page.date | date_to_string }} </h3>
+  <span class="post date">Written on {{ page.date | date_to_string }} </span>
+  <span>
+    {% for tag in page.tags %}
+      <a class="post-tag" href="/tags/{{ tag }}"><nobr>{{ tag }}</nobr>&nbsp;</a>
+    {% endfor %}
+  </span>
+
   <br/>
 </div>
 <div class="post content">

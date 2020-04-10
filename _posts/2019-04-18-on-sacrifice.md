@@ -1,3 +1,9 @@
+---
+title: On Sacrifice
+date: 2019-04-18
+tags: humans
+---
+
 Ten years ago, my parents made the decision to move from Iran to the U.S. so that my brother and I could have access to better education and opportunities. While immigration to the U.S. on the basis of access to opportunity is a prosaic idea, thoroughly explored and romanticized by literature and various forms of art, I still find myself thinking about this decision at times, with nothing short of bewilderment.
 
 My parents had extremely comfortable lives back home; they were fairly well off financially, had challenging and engaging occupations, understood how the world works, and most importantly, had a wealth of friends and family around. Yet, they gave all of this up, and migrated to a land far far away so that their offsprings could have the potential to live better lives. They now routinely go years without seeing their family and friends, have lost touch with the politics and the everyday happenings in the land they once called home, have somewhat limited abilities to navigate their surroundings because of language and cultural barriers, have had to hold extremely degrading lines of work and many many more just to increase the likelihood that their sons live more fulfilled lives. 
