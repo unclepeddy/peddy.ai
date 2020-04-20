@@ -11,7 +11,7 @@ This post eventually ended up turning into a project that is actively being deve
 
 Please scroll down for a live demo :)
 
-<!-- Load tf.js libraries !--> 
+<!-- Load tf.js libraries !-->
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
 
@@ -20,7 +20,7 @@ Please scroll down for a live demo :)
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
 
 <!-- Load WASM backend for tf.js !-->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js"></script>
 
 <!-- Load three.js -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.106.2/build/three.min.js"></script>
@@ -51,15 +51,20 @@ While training an end-to-end model to solve the entire task would be possible (a
 
 The next idea is to use pre-trained vision models to extract the key points, and then analytically solve the problem of "given the two objects described by these two sets of key points, can we determine if they're touching one another?" 
 
-There is a lot of literature concerning this problem (proximity of point clouds in N-space) and I toyed around with using a simple metric, the [Hausdorff distance](https://en.wikipedia.org/wiki/Hausdorff_distance), which measures degree of proximity of two subsets of a metric space. While in general this approach worked somewhat well (without even needing too much fine-tuning), it failed in a lot of corner cases and adversarial scenarios (subject holds their hand extremely close to their face to deceive the system). 
+There is a lot of literature concerning this problem (proximity of point clouds in N-space) and I toyed around with using a simple metric, the [Hausdorff distance](https://en.wikipedia.org/wiki/Hausdorff_distance), which measures degree of proximity of two subsets of a metric space, by computing the maximum distance you have to travel to get from any one point in one set to any point in the other. Somewhat formally defined, for $$A \text{ and } B$$, non-empty subsets of the metric space $$(M, d)$$, the Hausdorff distance $$h$$ can be computed as: 
 
-Therefore, instead of trying to expand the description of the solution, I decided to view it as a learning problem.
+$$h(A,B) = \max_{a \in A} \{ \min_{b \in B} \{ d(a,b) \} \}$$ 
+
+
+Ignoring the lack of symmetry and a couple other technical details, this approach worked somewhat well (without even needing too much fine-tuning) in most cases; however, it failed in a lot of corner cases and adversarial scenarios (subject holds their hand extremely close to their face to deceive the system). 
+
+Therefore, instead of trying to expand the description of the solution to account for corner cases, I decided to view it as a learning problem.
 
 ### Pre-trained Vision Models + Classifier
 
-We use pre-trained Handpose and Facemesh models to accomplish the first task and train a neural network classifier to solve the second task. Our hypothesis here is that while it may be somewhat challenging to derive a closed-form description of $$f$$ in $$y = f(H, F)$$, we can collect many $$((H, F), y)$$ samples and learn $$f$$ since the space of functions in $$\mathbf{R}^{\mid H \mid \times \mid F \mid} \rightarrow \{T,F\}$$ with $$\mid H \mid=22, \mid F \mid=220$$ is one where search is possible.
+We use pre-trained Handpose and Facemesh models to accomplish the first task and train a neural network classifier to solve the second task. Our hypothesis here is that while it may be somewhat challenging to derive a closed-form description of $$f$$ in $$y = f(H, F)$$, we can collect many $$((H, F), y)$$ samples and learn $$f$$ since the space of functions in $$\mathbf{R}^{\mid H \mid \times \mid F \mid} \rightarrow \{0, 1\}$$ with $$\mid H \mid=22, \mid F \mid=220$$ is one where search is possible.
 
-I first collected some data, using this [procedure](https://github.com/misterpeddy/hands-down#data-collection) and started experimenting, as captured in this [notebook](https://github.com/misterpeddy/hands-down/blob/master/tfx/experiment_18_03_2020.ipynb). I toyed around with a few ideas until realizing that a bit of feature engineering would go a long way.
+I first collected some data, using this [procedure](https://github.com/misterpeddy/hands-down#data-collection) and started experimenting, as captured in this [notebook](https://github.com/misterpeddy/hands-down/blob/master/tfx/experiment_31_03_2020.ipynb). I toyed around with a few ideas until realizing that a bit of feature engineering would go a long way.
 
 This feature engineering was simply noting that the most important bit of information the model should know is how far (for some metric that defines "far") each hand key point is from the face. 
 
@@ -88,6 +93,3 @@ Inference: <span id="inference-txt"></span>
   <video style="display:none" id="video"></video>
   <canvas id="output">
 </div>
-
-
-

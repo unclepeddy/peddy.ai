@@ -1,9 +1,9 @@
 // TODO(peddy): Fix the CORS issue on 302 redirect and use canonical model URL
 // const MODEL_URL = "http://models.peddy.ai/covid.js/05-03-20-0/model.json"
-const MODEL_URL = "https://storage.googleapis.com/peddy-ai-models/covid.js/05-03-20-0/model.json"
+const MODEL_URL = "https://peddy-ai-models.storage.googleapis.com/hands-down/05-03-20-0/model.json"
 const MODEL_LOCAL_PATH = "models/05-03-20-0/model.json"
 
-const BACKEND = 'wasm';
+const BACKEND = 'webgl';
 const IS_INFERENCE_VERBOSE = false;
 
 let faceMesh, handPose, classifier, initialized;
