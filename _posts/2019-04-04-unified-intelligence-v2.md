@@ -42,7 +42,7 @@ Also note that how it arrives at a "desired state" of the world and itself is an
 
 Absent from this formulation is any mention of "goals." This is due to my fundamental belief that goals, objectives, incentives, rewards, etc. are tools that the agent creates for itself as heuristics that allow it to build mechanisms of reasoning.
 It is plausible that human intelligence can be thought of as having evolved due of set of innate goals (ex. will to live); but this is a characterization of the the evolution of human intelligence; it says nothing about the possible characteristics of intelligence birthed from non-evolutionary methods.
-Goals and rewards are features of learning, not intelligence and learning a consequence of the existence intelligence in an agent, not the other way around. An intelligent system has the ability to create goals from information learned of its environment, interpret them from its immutable makeup, or create them dynamically with no prior motivation and/or meta-goals.
+Goals and rewards are features of learning, not intelligence and learning s a consequence of the existence of intelligence in an agent, not the other way around. An intelligent system has the ability to create goals from information learned of its environment, interpret them from its immutable makeup, or create them dynamically with no prior motivation and/or meta-goals.
 
 ## Evolution and The Far Future
 
