@@ -16,6 +16,16 @@ permalink: /media
   {% endfor %}
 </div>
 
+<div class='media container instagram'>
+  {% for piece in site.media %}
+    {% if piece.type == "instagram" %}
+      <div class='media element instagram'>
+        <iframe width="400" height="480" src="{{ piece.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
 <div class='media container youtube'>
   {% for piece in site.media %}
     {% if piece.type == "youtube" %}
@@ -38,3 +48,5 @@ permalink: /media
     {% endif %}
   {% endfor %}
 </div>
+
+
