@@ -4,6 +4,10 @@ title: About
 permalink: /about/
 ---
 
+_I'm dropping an album on 4/27. If you want to be notified when it comes out, drop your email below :)_
+
+--
+
 Hello :) My name is Pedram and this is my personal blog. I use this corner of the internet to jot down my thoughts, articulate my views on topics that interest me and document my journey through the space of ideas.
 
 While most of the content here will be technical notes and posts ([a](/posts/evolution-of-hardware-for-deep-learning) [couple](/posts/Recurrent-Neural-Networks) [favorites](/posts/serving-tf-on-cpu)), I try to reserve some room to explore my understanding of the more nebulous aspects of humanity and life. A few such essays that could most use some feedback: [principles](/thoughts/principles), [sacrifice](/posts/on-sacrifice), [maturity](/thoughts/maturity) and [personality](/thoughts/personality).
