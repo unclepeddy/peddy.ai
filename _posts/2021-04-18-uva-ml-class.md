@@ -33,3 +33,6 @@ Here are a few ML-related projects I've started that I'd be happy to help you co
 - [Deep Learning](https://github.com/misterpeddy/deeplearning) - A small collection of very basic learning tasks implemented with TensorFlow
 - [Notey](https://github.com/misterpeddy/notey) - While listening to a podcast, tap your smart watch and have Notey take notes of the interesting part of a conversation
 - [Jukebox](https://github.com/misterpeddy/jukebox) - Generate Spotify playlists based on your listening profile and current mood
+
+
+[Notes Doc](https://docs.google.com/document/d/108F8IG8x3hrFXpBWCKVRwpaMY-l_HAjLXGtZWKupnTQ/edit)
