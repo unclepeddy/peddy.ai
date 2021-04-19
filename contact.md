@@ -17,3 +17,5 @@ Twitter: [@misterpeddy](https://twitter.com/misterpeddy)
 I'm a huge proponent of open source software and try to do most of my development work in the open.
 
 Github: [@misterpeddy](https://github.com/misterpeddy)
+
+{% include signup_form.html %}
