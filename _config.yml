@@ -7,6 +7,7 @@ baseurl: "" # empty subpath
 url: "http://blog.peddy.ai" # the site base hostname & protocol
 twitter_username: misterpeddy
 github_username:  misterpeddy
+mailchimp-list: blog.peddy.ai
 
 # Build settings
 markdown: kramdown

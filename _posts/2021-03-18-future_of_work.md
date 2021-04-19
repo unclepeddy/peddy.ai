@@ -1,11 +1,13 @@
 ---
+layout: post
 title: Future of Work
-date: 2019-04-20
+date: 2021-03-18
+tags: humans product
 ---
 
-The future of software development is not software companies; it's Github Sponsors.
+The future of software development is not large software companies with thousands of engineers; it's small groups of developers working on projects they're passionate about, funded via Github Sponsors.
 
-The future of music production is not large record labels and production studios; it's Spotify for Artists and Splice.
+The future of music production is not a few superstars making billions through large record labels and music production studios; it's Spotify for Artists, Splice and fiverr enabling millions of artists each with 100-10,000 fans making not billions but enough to sustain themselves and make a living from their art.
 
 The future of selling consumer products is not a large brand running large production facilities, selling on Amazon and buying Google Search Ads; it's a no-name company doing the manufacturing for many small brands, each of which owns an online store set-up through Shopify, doing direct-to-consumer marketing with local social media influencers. 
 
@@ -22,8 +24,6 @@ A few trends:
 * Machines' abilities to perceive the physical world as humans do and use human-like modalities to communicate with us is slowly reaching those of natural humans 
 * More robust / flexible physical form factors (bodies, arms, wheels) will enable machines to manipulate objects in the physical world with high precision, encroaching on blue-collar work and more sophisticated algorithms and better knowledge bases will enable machines to handle information more intelligently, encroaching on white-collar work.
 * Some of the numbers will be offset by those displaced workers transitioning to management and doing work in neighboring functions (perhaps even ones that don't currently exist, thereby growing the pie), but the recent past suggests that does not happen too often.
-
-Todo: figure out for ex a lot of blue collar work is gone and see what % of different component of GDP is being driven by machines. 
 
 The trivial conclusion here is that the rate at which we are using computers to fill jobs done by humans today is going to continue to increase. This means to reason about macro employment trends, we have to somehow model the probability of a certain job being filled by a human vs. a computer at a given point in time. Let's try to capture an extremely simple model that frames this as a matching problem between demand for work $$D$$ and human supply for work $$S_H$$.
 

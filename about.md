@@ -8,6 +8,7 @@ Hello :) My name is Pedram and this is my personal blog. I use this corner of th
 
 While most of the content here will be technical notes and posts ([a](/posts/evolution-of-hardware-for-deep-learning) [couple](/posts/Recurrent-Neural-Networks) [favorites](/posts/serving-tf-on-cpu)), I try to reserve some room to explore my understanding of the more nebulous aspects of humanity and life. A few such essays that could most use some feedback: [principles](/thoughts/principles), [sacrifice](/posts/on-sacrifice), [maturity](/thoughts/maturity) and [personality](/thoughts/personality).
 
+{% include signup_form.html %}
 -- 
 
 I currently work at Google Brain on systems for machine learning, researching and building [large-scale](http://stevenwhang.com/tfx_paper.pdf), [open-source](https://github.com/tensorflow/tfx) software systems that allow others to design and build [software 2.0](https://medium.com/@karpathy/software-2-0-a64152b37c35). More specifically, I manage Google's inference program, where we have built one of the most sophisticated ML serving platforms on the planet, partially [open-sourced](http://github.com/tensorflow/serving), serving thousands of models and powering many millions of inferences per second for hundreds of teams across Alphabet (within Youtube, Maps, Search, Waymo, DeepMind, etc.) 
