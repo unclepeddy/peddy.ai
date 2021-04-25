@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-_I'm dropping an album on 4/27. If you want to be notified when it comes out, drop your email below :)_
+_I'm dropping an album on 4/27. Check it out [here](url.peddy.ai/2020)._
 
 --
 
