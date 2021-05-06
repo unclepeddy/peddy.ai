@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-_I'm dropping an album on 4/27. Check it out [here](http://url.peddy.ai/2020) :)_
+I'd love it if you gave my album a listen, and even more if you let me know what you think :) ([Spotify](https://open.spotify.com/album/59XsCfLvhm2MeTjuOznlwU), [Apple](https://music.apple.com/us/album/20-20/1565541043), [YouTube](https://www.youtube.com/playlist?list=OLAK5uy_kCZebWum348RWDBnE7zEAgmnygCzP2OKg))
 
 --
 
