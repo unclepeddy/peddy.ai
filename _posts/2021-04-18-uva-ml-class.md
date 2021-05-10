@@ -2,6 +2,7 @@
 layout: post
 title: Notes for UVa ML Class
 date: 2021-04-19
+published: false
 tags: machine-learning
 ---
 
